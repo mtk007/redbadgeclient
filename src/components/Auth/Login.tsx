@@ -1,5 +1,7 @@
 
  import React, {Component} from 'react';
+ import InputField from '../components/InputField';
+import { Form, Button, Input } from 'reactstrap';
 //create here or import input interface from components folder
 //import material UI buttons
 

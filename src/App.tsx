@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Nav from './components/Site/Nav'
+import Navbar from './components/Site/Nav'
 import { isPropertySignature } from 'typescript';
 import Footer from './components/Site/footer';
-import Features from './components/dropdownarrays'
-
+import featuresPump from './components/'
+import Header from './components/Site/header';
 //don't forget the major components here
 
 // type Props = {}
@@ -48,6 +48,7 @@ updateToken(newToken: string){
   }, () => console.log(this.state.sessionToken))
 }
 
+//pass clearToken through Navbar AND the actual button (onclick) when it's ready.
 clearToken(){
   localStorage.clear();
   this.setState({
@@ -59,6 +60,8 @@ render(){
   return ( 
     <div className="App">
     <Header />
+    {/* pass clear token function via props into Navbar*/ }
+    <Navbar />
     {}
     <Footer />
     </div>

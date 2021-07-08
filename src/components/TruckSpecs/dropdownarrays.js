@@ -16,8 +16,9 @@ const featuresTruck = {
     suspension: ['spring', 'air ride'],
     shocks: [0, 2],
     brakes: ['disc', '"S" Cam'],
-    notes: []
 }
+//don't forget free form box for notes: 
+
 //pump
 const featuresPump = {
     pumpModel: ['Hale QFLO', 'Hale QMAX 1250-2000', 'Hale QMAX 2250', 'Hale QTWO', 'Hale RSD', 'Hale AP PTO', 'Waterous CS', 'Waterous CSU', 'Waterous CM', 'Waterous CMU', 'Darley'],
@@ -36,5 +37,4 @@ const featuresPump = {
     boosterHose: [0, 1]
     }
 
-module.exports = (featuresTruck)
-module.exports = (featuresPump)
+module.exports = (featuresTruck, featuresPump)

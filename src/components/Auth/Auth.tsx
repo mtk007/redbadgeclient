@@ -19,4 +19,4 @@ return(
      }
 
 
-// export default Auth;
+export default Auth;

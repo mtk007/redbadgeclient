@@ -1,23 +1,21 @@
-import React from 'react'
-import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles'
-import './Logout.css'
-import {Typography} from '@material-ui/system';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
-export default function Logout(props) {
+import * as authActionCreators from "../actions/auth";
 
-  return (
-     <>
-     <div className='logout'>
-       <Button id='logout'
-       onClick={props.clearSession}
-
-        className='logOut'>Log Out</Button>   
-    </>
+class Logout extends Component {
+  
+  render() {
+    return (
+      <button onClick = {/* clear token function prop */ } >
+        
+          </button>
 
     );
   }
-  
 
+}
 
-export default Logout;
+export default connect()(Logout);

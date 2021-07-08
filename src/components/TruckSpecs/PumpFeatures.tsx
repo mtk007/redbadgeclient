@@ -1,38 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./TruckBasics.css";
+import "./PumpFeatures.css";
+import mafslogo from 
 
-class TruckBasics extends React.Component {
+class PumpFeatures extends React.Component {
   render() {
-    const { overlapGroup, mafslogo, overlapGroup1, help, text2, text1, place, polygon2, next, polygon22 } = this.props;
+    const { mafslogo } = this.props;
 
     return (
-      <div class="container-center-horizontal">
+      <div class="">
         <form
           className="truck-basics screen"
-          onclick="window.open('javascript:SubmitForm(%27form3%27)', '_self');"
-          name="form3"
-          action="form3"
+          onclick="window.open('javascript:SubmitForm(truckform)', '_self');"
+          name="truckform"
+          action="truckform"
           method="post"
         >
           <div className="flex-row">
-            <div className="overlap-group-1" style={{ backgroundImage: `url(${overlapGroup})` }}>
               <img className="mafslogo" src={mafslogo} />
             </div>
-            <a
-              href="javascript:ShowOverlay('ipad-nexus-9-8', 'animate-appear');"
-              onClick={window.event.stopPropagation()}
-            >
-              <div className="component-4-1">
-                <div className="overlap-group1" style={{ backgroundImage: `url(${overlapGroup1})` }}>
-                  <div className="help roboto-black-thunderbird-29px">{help}</div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className="text-2 roboto-black-dove-gray-48px">{text2}</div>
-          <div className="text-1 roboto-black-dove-gray-20px">{text1}</div>
-          <div className="flex-row-1">
+           
+              
             <Link to="/customer-info" onClick={window.event.stopPropagation()}>
               <div className="component-6-2">
                 <div className="overlap-group">
@@ -55,11 +43,11 @@ class TruckBasics extends React.Component {
                 </div>
               </div>
             </Link>
-          </div>
+          
         </form>
       </div>
     );
   }
 }
 
-export default TruckBasics;
+export default PumpFeatures;
