@@ -1,0 +1,65 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import "./TruckBasics.css";
+
+class TruckBasics extends React.Component {
+  render() {
+    const { overlapGroup, mafslogo, overlapGroup1, help, text2, text1, place, polygon2, next, polygon22 } = this.props;
+
+    return (
+      <div class="container-center-horizontal">
+        <form
+          className="truck-basics screen"
+          onclick="window.open('javascript:SubmitForm(%27form3%27)', '_self');"
+          name="form3"
+          action="form3"
+          method="post"
+        >
+          <div className="flex-row">
+            <div className="overlap-group-1" style={{ backgroundImage: `url(${overlapGroup})` }}>
+              <img className="mafslogo" src={mafslogo} />
+            </div>
+            <a
+              href="javascript:ShowOverlay('ipad-nexus-9-8', 'animate-appear');"
+              onClick={window.event.stopPropagation()}
+            >
+              <div className="component-4-1">
+                <div className="overlap-group1" style={{ backgroundImage: `url(${overlapGroup1})` }}>
+                  <div className="help roboto-black-thunderbird-29px">{help}</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className="text-2 roboto-black-dove-gray-48px">{text2}</div>
+          <div className="text-1 roboto-black-dove-gray-20px">{text1}</div>
+          <div className="flex-row-1">
+            <Link to="/customer-info" onClick={window.event.stopPropagation()}>
+              <div className="component-6-2">
+                <div className="overlap-group">
+                  <a onClick={window.event.stopPropagation()}>
+                    <div className="rectangle-6 border-6px-smalt"></div>
+                  </a>
+                  <div className="place roboto-black-thunderbird-35px">{place}</div>
+                  <img className="polygon-2" src={polygon2} />
+                </div>
+              </div>
+            </Link>
+            <Link to="/ipad-nexus-9-5" onClick={window.event.stopPropagation()}>
+              <div className="component-5-2">
+                <div className="overlap-group">
+                  <a onClick={window.event.stopPropagation()}>
+                    <div className="rectangle-6 border-6px-smalt"></div>
+                  </a>
+                  <div className="next roboto-black-thunderbird-35px">{next}</div>
+                  <img className="polygon-2-1" src={polygon22} />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
+
+export default TruckBasics;

@@ -44,3 +44,30 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+react form
+
+//    // <div>
+//      //</div>       <h1>Sign Up</h1>
+            
+//             <Form onSubmit={handleSubmit}>
+//                 <FormGroup>
+//                 <Label htmlFor='email'>Username</Label>
+//                 <Input onChange={(event) => setUsername(event.target.value)} name='email' value={email} />
+//                 </FormGroup>
+                
+//                 <FormGroup>
+//                     <Label htmlFor='password'>Password</Label>
+//                     <Input onChange={(event) => setPassword(event.target.value)} name="password" value={password} />
+//                 </FormGroup>
+                
+//                 <Button type='submit'> Sign Up </Button>
+                
+//             </Form>
+//    </div>
+
+
+
+
+

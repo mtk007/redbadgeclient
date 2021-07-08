@@ -1,0 +1,145 @@
+.component-4-1 {
+    align-items: flex-end;
+    cursor: pointer;
+    display: flex;
+    height: 78px;
+    justify-content: center;
+    margin-left: 480px;
+    min-width: 89px;
+  }
+  .component-5-2 {
+    align-items: flex-start;
+    cursor: pointer;
+    display: flex;
+    height: 70px;
+    margin-left: 364px;
+    min-width: 161px;
+  }
+  .component-6-2 {
+    align-items: flex-start;
+    cursor: pointer;
+    display: flex;
+    height: 70px;
+    min-width: 161px;
+  }
+  .flex-row {
+    align-items: flex-start;
+    display: flex;
+    margin-right: 2px;
+    min-width: 694px;
+  }
+  .flex-row-1 {
+    align-items: flex-start;
+    align-self: center;
+    display: flex;
+    margin-left: 10.0px;
+    margin-top: 228px;
+    min-width: 686px;
+  }
+  .help {
+    letter-spacing: 0;
+    line-height: 29px;
+    min-height: 40px;
+    min-width: 62px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .mafslogo {
+    height: 124px;
+    object-fit: cover;
+    width: 125px;
+  }
+  .next {
+    left: 22px;
+    letter-spacing: 0;
+    line-height: 68px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+  }
+  .overlap-group {
+    height: 74px;
+    margin-top: -4.5px;
+    position: relative;
+    width: 161px;
+  }
+  .overlap-group-1 {
+    align-items: flex-start;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: flex;
+    min-width: 125px;
+  }
+  .overlap-group1 {
+    align-items: flex-start;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: flex;
+    height: 96px;
+    justify-content: flex-end;
+    margin-bottom: -15.0px;
+    min-width: 107px;
+    padding: 23px 22px;
+  }
+  .place {
+    left: 61px;
+    letter-spacing: 0;
+    line-height: 68px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+  }
+  .polygon-2, .polygon-2-1 {
+    height: 24px;
+    left: 25px;
+    object-fit: cover;
+    position: absolute;
+    top: 28px;
+    width: 20px;
+  }
+   
+  .rectangle-6 {
+    background-color: var(--white);
+    border-radius: 32px;
+    box-shadow: 0px 3px 6px #00000029;
+    cursor: pointer;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 4px;
+    width: 161px;
+  }
+  
+  .text-1 {
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: 33px;
+    min-height: 106px;
+    min-width: 670px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .text-2 {
+    align-self: center;
+    letter-spacing: 0;
+    line-height: 48px;
+    margin-left: 20.0px;
+    margin-top: 323px;
+    min-height: 65px;
+    min-width: 672px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .truck-basics {
+    align-items: flex-end;
+    background-color: var(--white);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 1024px;
+    padding: 32px 26px;
+    width: 768px;
+  }
+  

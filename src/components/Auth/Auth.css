@@ -1,0 +1,20 @@
+body{
+    background-color: #EEE;
+}
+
+.auth {
+    text-align: center;
+}
+
+.login{
+    text-align: center;
+}
+
+.registerEmail {
+    text-align: center;
+}
+
+.updateEmail {
+    margin-bottom: 2%;
+    text-align: center;
+}
