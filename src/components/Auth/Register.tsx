@@ -1,6 +1,6 @@
 // //FROM WORKOUT LOG - ACTUALLY WORKS
 import React, {Component} from 'react';
-import RegisterField from '../Auth/RegisterField';
+
 //import material UI buttons
 
 type RegisterState = {
@@ -59,7 +59,7 @@ render(){
 return(
 
     <>
-    <RegisterField {label: string;
+     {label: string;
     formFeedBack: string;
     formText: string;
     onChange: {} }/>
@@ -67,7 +67,7 @@ return(
       <Input placeholder="Email" type="text" onChange={this.handleEmailInput.bind(this)} />
       <Input placeholder="Password" type="text" onChange={this.handlePasswordInput.bind(this)} />
       <Button onClick={this.handleSubmit}>Register</Button>
-    </RegisterField> */}
+    */}
 
     </>
 )}

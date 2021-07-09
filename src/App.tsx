@@ -61,7 +61,7 @@ render(){
     <div className="App">
     <Header />
     {/* pass clear token function via props into Navbar*/ }
-    <Navbar />
+    <Navbar clearToken = {this.clearToken}/>
     {}
     <Footer />
     </div>

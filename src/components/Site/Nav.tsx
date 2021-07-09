@@ -10,9 +10,12 @@ import Logout from '../Logout/logout';
 
 // import Home from './Home';
 
+type AcceptedProps = {clearToken: ()=>
+        void
+}
 
 
-const Navbar = () => {
+const Navbar: React.FunctionComponent<AcceptedProps> = (props) => {
     return(
         <div className='sidebar'>
             <div className='sidebar-list-styling'>
@@ -24,8 +27,7 @@ const Navbar = () => {
                     <li><Link to='/help'>Help</Link></li>
                     
                     <li><Link to='/admin'>Admin</Link></li>
-                      {/* pass clear token function via props into Logout*/ }
-                    <li><Logout /></li>
+                    <li><Logout clearToken = {props.clearToken} /></li>
                 
                 </ul>
             </div>

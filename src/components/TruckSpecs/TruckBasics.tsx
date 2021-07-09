@@ -13,12 +13,11 @@ class TruckBasics extends React.Component {
           onclick="window.open('javascript:SubmitForm(truckform)', '_self');"
           name="truckform"
           action="truckform"
-          method="post"
-        >
+          method="post">
+
           <div className="flex-row">
               <img className="mafslogo" src={mafslogo} />
             </div>
-           
               
             <Link to="/customer-info" onClick={window.event.stopPropagation()}>
               <div className="component-6-2">
@@ -31,6 +30,7 @@ class TruckBasics extends React.Component {
                 </div>
               </div>
             </Link>
+            
             <Link to="/ipad-nexus-9-5" onClick={window.event.stopPropagation()}>
               <div className="component-5-2">
                 <div className="overlap-group">
