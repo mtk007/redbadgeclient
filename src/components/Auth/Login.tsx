@@ -1,6 +1,5 @@
 
- import React, {Component} from 'react';
- import InputField from '../components/InputField';
+import React, {Component} from 'react';
 import { Form, Button, Input } from 'reactstrap';
 //create here or import input interface from components folder
 //import material UI buttons
@@ -57,7 +56,7 @@ handlePasswordInput(event:any) {
      return(
     <>
     <form>
-        <div className='login'>
+        {/* <div className='login'>
         <h1>Login</h1>
         <label htmlFor="email">Email:</label>
         <br/>
@@ -74,7 +73,7 @@ handlePasswordInput(event:any) {
         onChange={(event) => setPassword(event.target.value)} />
         <br/>
         <button type="submit" onClick={handleSubmit}>Submit</button>         
-         </div>
+         </div> */}
     </form>
 </>
   ) }}

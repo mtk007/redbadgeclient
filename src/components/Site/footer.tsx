@@ -1,29 +1,29 @@
 import React, { Component } from "react";
 //import styled from "styled-components";
 //import Typography from "material-ui/Typography";
-//
 
-const FooterContainer = styled.div`
-  text-align: center;
-  text-style: Roboto;
-  position: absolute;
-  bottom: 0;
-  width: 100% !important;
-  height: 100px !important ;
-  background: #6cf;
-`;
+
+// const FooterContainer = styled.div`
+//   text-align: center;
+//   text-style: Roboto;
+//   position: absolute;
+//   bottom: 0;
+//   width: 100% !important;
+//   height: 100px !important ;
+//   background: #6cf;
+// `;
 
 class Footer extends Component {
   render() {
-    return (
-      <FooterContainer>
-       {/** <Typography variant="title">Mid America Fire Fire Apparatus Builder v1.0</Typography>*/} 
-      </FooterContainer>
-    );
+    return (<>
+     
+       {/*<Typography variant="title">Mid America Fire Fire Apparatus Builder v1.0</Typography> */}
+      
+   </> );
   }
 }
 
-export default Footer;
+
 
 
 //or
@@ -39,4 +39,4 @@ export default Footer;
 //         );
 // };
 
-// export default Footer;
+export default Footer;

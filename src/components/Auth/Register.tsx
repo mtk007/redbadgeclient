@@ -59,15 +59,15 @@ render(){
 return(
 
     <>
-     {label: string;
+    {/* label: string;
     formFeedBack: string;
     formText: string;
-    onChange: {} }/>
-      {/* <h1>Register</h1>
+    onChange: {} />
+       <h1>Register</h1>
       <Input placeholder="Email" type="text" onChange={this.handleEmailInput.bind(this)} />
       <Input placeholder="Password" type="text" onChange={this.handlePasswordInput.bind(this)} />
       <Button onClick={this.handleSubmit}>Register</Button>
-    */}
+    </RegisterField> */}
 
     </>
 )}

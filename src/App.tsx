@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Site/Nav'
 import { isPropertySignature } from 'typescript';
 import Footer from './components/Site/footer';
-import featuresPump from './components/'
+import Auth from './components/Auth/Auth';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Site/header';
-//don't forget the major components here
+//don't forget to import the major components here
 
-// type Props = {}
-// type: AppState = {
-//   sessionToken: string | null,
-// }
+type Props = {}
+type AppState = {
+ sessionToken: string | null,
+ }
 
 type AcceptedProps={
   
@@ -61,7 +61,7 @@ render(){
     <div className="App">
     <Header />
     {/* pass clear token function via props into Navbar*/ }
-    <Navbar clearToken = {this.clearToken}/>
+   {/* <Navbar clearToken = {this.clearToken}/>*/}
     {}
     <Footer />
     </div>

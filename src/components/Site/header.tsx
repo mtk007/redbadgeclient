@@ -1,20 +1,22 @@
 import React from 'react';
+import Navbar from '../Site/Nav';
 
 
 const Header = () => {
     return(
-        <header>
-            <Navbar className='header'>
-                <NavbarBrand href='/'>React Library</NavbarBrand>
-                <Nav className='ml-auto' navbar>
+        <div><header>
+            {/*<Navbar className='header'/>
+            
+                 <Nav className='ml-auto' navbar>
                     <NavItem>
                         <NavLink href='https://github.com/yourhandle/yourRepoForThisApp'>
                             Github 
                         </NavLink>
                     </NavItem>
                 </Nav>
-            </Navbar>
+            </Navbar> */}
         </header>
+        </div>
     );
 };
 
