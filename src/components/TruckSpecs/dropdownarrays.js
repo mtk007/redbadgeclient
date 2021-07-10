@@ -6,7 +6,7 @@ const featuresTruck = {
     numberAxles: [2, 3],
     engine: ['L9-330', 'L9-350', 'L9-380', 'L9-400', 'L9-450'],
     fuelTankSize: [50, 65, 100],
-    batteries: ['3-Array', '6-Array'],
+    batteries: [3, 6],
     batteryCharging: ['standard receptacle', 'auto charge', 'autocharge/pump plus'],
     alternator: ['L/N 320', 'Delco 320', 'Delco 430', 'Niehoff 360'],
     electrical: ['Point to point', 'Akron VMUX'],

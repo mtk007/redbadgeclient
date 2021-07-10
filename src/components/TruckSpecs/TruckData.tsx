@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -8,11 +8,134 @@ import Select from '@material-ui/core/Select';
 import { render } from '@testing-library/react';
 
 
+type TruckData = {
+    truckType: string, 
+    numberAxles: number,
+    engine: string, 
+    fuelTankSize: number, 
+    batteries: number, 
+    batteryCharging: string, 
+    alternator: string, 
+    electrical: string, 
+    electricalDisplaySwitch: string, 
+    wheelType: string, 
+    tires: string, 
+    suspension: string, 
+    shocks: string, 
+    brakes: string, 
+    notes: string
+}
+
+
+
 type AcceptedProps = {
     sessionToken: string | null,
 }
   
-export default class createTruckTable extends
+export default class CreateTruck extends
+Component<AcceptedProps, TruckData> {
+    constructor(props: AcceptedProps) {
+        super(props)
+        this.state = {
+          truckType: '',
+          numberAxles: 0,
+          engine: '',  
+          fuelTankSize: 0,
+          batteries: 0,
+          batteryCharging: '',
+          alternator: '',
+          electrical: '',
+          electricalDisplaySwitch: '',
+          wheelType: '',
+          tires: '',
+          suspension: '',
+          shocks: 0,
+          brakes: '',
+          notes: '',    
+        }
+    }
+//get all truck
+ componentDidMount(){
+     //const id = 
+     fetch('http://localhost:911/truck/truckbasics/getalltrucks', {
+         method: 'GET',
+         headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.token   
+         })
+        }).then(
+            (response) => response.json()
+        ).then((data) => {
+            console.log(data)
+     })
+ }   
+
+ //get truck by ID
+handleGetTruckId = (event: any) => {
+    event.preventDefault();
+    fetch('http://localhost:911/truck/truckbasics/getmytrucks/${id}', {
+    method: 'GET',
+    //NEED HEADERS HERE?   
+    headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.token   
+         })
+        }).then(
+            (response) => response.json()
+        ).then((data) => {
+            console.log(data)
+     })
+}
+
+//createtruck
+handleCreateTruck = (event: any) => {
+    event.preventDefault();
+    fetch('http://localhost:911/truck/truckbasics/create', {
+        method: 'POST',
+        body: JSON.stringify({
+
+            truckType: this.state.truckType, numberAxles: this.state.numberAxles, engine: this.state.engine, fuelTankSize: this.state.fuelTankSize, batteries: this.state.batteries, batteryCharging: this.state.batteryCharging, 
+            alternator: this.state.alternator, electrical: this.state.electrical, electricalDisplaySwitch: this.state.electricalDisplaySwitch, 
+            wheelType: this.state.wheelType, tires: this.state.tires, suspension: this.state.suspension, shocks: this.state.shocks, brakes: this.state.brakes, notes: this.state.notes}),
+
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.token
+                 })
+            }).then(
+                (response) => response.json()
+            ).then((data) => {
+                console.log(data);
+      })
+}
+
+//update truck
+handleUpdateTruck = (event: any) => { 
+    event.preventDefault(); 
+    console.log(this.state);
+    fetch('http://localhost:911/truck/truckbasics/update/${id}', {
+            method: 'PUT',
+            body: JSON.stringify({
+
+                truckType: this.state.truckType, numberAxles: this.state.numberAxles, 
+                engine: this.state.engine, fuelTankSize: this.state.fuelTankSize, 
+                batteries: this.state.batteries, batteryCharging: this.state.batteryCharging, 
+                alternator: this.state.alternator, 
+                electrical: this.state.electrical, electricalDisplaySwitch: this.state.electricalDisplaySwitch, 
+                wheelType: this.state.wheelType, tires: this.state.tires, suspension: this.state.suspension, 
+                shocks: this.state.shocks, brakes: this.state.brakes, notes: this.state.notes}),
+
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.token
+                })
+            }).then(
+                (response) => response.json()
+            ).then((data) => {
+                console.log(data);
+            })
+        }
+
 
 render() {
 return (    
@@ -34,7 +157,7 @@ return (
     </InputLabel>   
         <Select onChange={this.handlefeaturesTruck.bind(this)}     
         defaultValue="number axles" id="numberAxles">          <MenuItem value='2'>2</MenuItem> 
-        <MenuItem value='3'>2</MenuItem>          
+        <MenuItem value='2'>2</MenuItem>          
         </Select>      
     </FormControl>    
 
@@ -100,7 +223,8 @@ return (
        Electrical System
     </InputLabel>                
         <Select onChange={this.handlefeaturesTruck.bind(this)} defaultValue="select electrical" id="electrical"> 
-
+        <MenuItem value='Point to point'>Point-to-Point</MenuItem>
+        <MenuItem value='Akron VMUX'>Akron VMUX</MenuItem>
        </Select>
     </FormControl>
 
@@ -110,7 +234,9 @@ return (
        Electrical Display
     </InputLabel>                
         <Select onChange={this.handlefeaturesTruck.bind(this)} defaultValue="select electrical display" id="electricalDisplaySwitch"> 
-
+        <MenuItem value='Standard Switches'>Standard Switches</MenuItem>
+        <MenuItem value='Vista Display'>Vista Display</MenuItem>
+        <MenuItem value='Vista Displays (2)'>Vista Displays x2</MenuItem>
        </Select>
     </FormControl>
 
@@ -120,7 +246,8 @@ return (
        Wheels
     </InputLabel>                
         <Select onChange={this.handlefeaturesTruck.bind(this)} defaultValue="select wheels" id="wheelType"> 
-
+        <MenuItem value='Painted Steel'>Painted Steel</MenuItem>
+        <MenuItem value='Aluminum'>Aluminum</MenuItem>
        </Select>
     </FormControl>
 
@@ -130,7 +257,8 @@ return (
        Tires
     </InputLabel>                
         <Select onChange={this.handlefeaturesTruck.bind(this)} defaultValue="select tires" id="tires"> 
-
+        <MenuItem value='Goodyear'>Goodyear</MenuItem>
+        <MenuItem value='Michelin'>Michelin</MenuItem>
        </Select>
     </FormControl>
 
@@ -140,7 +268,8 @@ return (
        Suspension
     </InputLabel>                
         <Select onChange={this.handlefeaturesTruck.bind(this)} defaultValue="select suspension" id="suspension"> 
-
+        <MenuItem value='spring'>Spring-based</MenuItem>
+        <MenuItem value='air ride'>Air Ride</MenuItem>
        </Select>
     </FormControl>
 
@@ -150,7 +279,8 @@ return (
        Shocks
     </InputLabel>                
         <Select onChange={this.handlefeaturesTruck.bind(this)} defaultValue="select shocks" id="shocks"> 
-
+        <MenuItem value='0'>0</MenuItem>
+        <MenuItem value='2'>2</MenuItem>
        </Select>
     </FormControl>
 
@@ -160,12 +290,10 @@ return (
        Brakes
     </InputLabel>                
         <Select onChange={this.handlefeaturesTruck.bind(this)} defaultValue="select brakes" id="brakes"> 
-
+        <MenuItem value='disc'>Disc</MenuItem>
+        <MenuItem value='"S" Cam'>"S" Cam</MenuItem>
        </Select>
     </FormControl>
 
-
 </div>  )}
-
-
-export default function GroupedSelect() {  const classes = useStyles()};
+}
