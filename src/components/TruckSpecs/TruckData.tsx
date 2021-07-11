@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
+import { Label } from 'reactstrap';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { render } from '@testing-library/react';
-import classes from '*.module.css';  //probably not what I actually need to do
+//import classes from '*.module.css';  //probably not what I actually need to do
 
 
 type TruckData = {
@@ -33,16 +34,12 @@ type AcceptedProps = {
 }
   
 
-//??????? it's not finding handlesubmit at the end on the actual button//
-
-class submit extends Component {
-    handlesubmit = () => {}
-}
 export default class CreateTruck extends
 Component<AcceptedProps, TruckData> {
     constructor(props: AcceptedProps) {
         super(props)
         this.state = {
+         // addTruck: [          ]
           truckType: '',
           numberAxles: 0,
           engine: '',  
@@ -57,14 +54,23 @@ Component<AcceptedProps, TruckData> {
           suspension: '',
           shocks: '',
           brakes: '',
-          notes: '',    
+          notes: ''    
         }
+       // this.addTruck = this.addTruck.bind(this);
     }
+
+    // addTruck(event) {
+    //     event.preventDefault();
+    //     this.setState({
+    //             addTruck: event.target.value
+    //     });
+    // }
+    
 //get all truck
- componentDidMount(){
+   
     handlesubmit = (e:any) => {
      e.preventDefault();
-     fetch('http://localhost:911/truck/truckbasics/getalltrucks', {
+     fetch('http://firetruckbuilder.herokuapp.com/truck/truckbasics/getalltrucks', {
          method: 'GET',
          headers: new Headers({
             'Content-Type': 'application/json',
@@ -75,12 +81,13 @@ Component<AcceptedProps, TruckData> {
         ).then((data) => {
             console.log(data)
      })
- } }
+ } 
 
  //get truck by ID
-handleGetTruckId = (event: any) => {
-    event.preventDefault();
-    fetch('http://localhost:911/truck/truckbasics/getmytrucks/${id}', {
+ //
+handleGetTruckId = (e: any) => {
+    e.preventDefault();
+    fetch('http://firetruckbuilder.herokuapp.com/truck/truckbasics/getmytrucks/${id}', {
     method: 'GET',
     //NEED HEADERS HERE?   
     headers: new Headers({
@@ -95,9 +102,11 @@ handleGetTruckId = (event: any) => {
 }
 
 //createtruck
-handleCreateTruck = (event: any) => {
-    event.preventDefault();
-    fetch('http://localhost:911/truck/truckbasics/create', {
+//''
+
+handleCreateTruck = (e: any) => {
+    e.preventDefault();
+    fetch('http://firetruckbuilder.herokuapp.com/truck/truckbasics/create', {
         method: 'POST',
         body: JSON.stringify({
 
@@ -117,13 +126,13 @@ handleCreateTruck = (event: any) => {
 }
 
 //update truck
-handleUpdateTruck = (event: any) => { 
-    event.preventDefault(); 
+//
+handleUpdateTruck = (e: any) => { 
+    e.preventDefault(); 
     console.log(this.state);
-    fetch('http://localhost:911/truck/truckbasics/update/${id}', {
+    fetch('http://firetruckbuilder.herokuapp.com/truck/truckbasics/update/${id}', {
             method: 'PUT',
             body: JSON.stringify({
-
                 truckType: this.state.truckType, numberAxles: this.state.numberAxles, 
                 engine: this.state.engine, fuelTankSize: this.state.fuelTankSize, 
                 batteries: this.state.batteries, batteryCharging: this.state.batteryCharging, 
@@ -148,7 +157,7 @@ handleAxles(e: any) {this.setState({numberAxles: e.targetvalue})}
 handleEngine(e: any) {this.setState({engine: e.targetvalue})}
 handleFuelTank(e: any) {this.setState({fuelTankSize: e.targetvalue})}
 handleBatteries(e: any) {this.setState({batteries: e.targetvalue})}
-andleBatteryCharging(e: any) {this.setState({batteryCharging: e.targetvalue})}
+handleBatteryCharging(e: any) {this.setState({batteryCharging: e.targetvalue})}
 handleAlternator(e: any) {this.setState({alternator: e.targetvalue})}
 handleElectricalSystem(e: any) {this.setState({electrical: e.targetvalue})}
 handleElectricalDisplay(e: any) {this.setState({electricalDisplaySwitch: e.targetvalue})}
@@ -160,8 +169,9 @@ handleBrakes(e: any) {this.setState({brakes: e.targetvalue})}
 
 render() {
 return (    
-  <div>      
-    <FormControl className={classes.formControl}>        
+  <div className='main'>  
+  <div className='maindiv'>
+      <form>       
     <InputLabel htmlFor="truckType">
        Truck Model
     </InputLabel>                
@@ -170,9 +180,9 @@ return (
         <MenuItem value='Tanker'>Tanker</MenuItem>
         <MenuItem value='MVP'>MVP</MenuItem>
         </Select>      
-    </FormControl>      
       
-    <FormControl className={classes.formControl}>        
+      
+    {/*  <FormControl className={classes.formControl}>    */}     
     <InputLabel htmlFor="numberAxles">
         Axles #
     </InputLabel>   
@@ -180,9 +190,9 @@ return (
         defaultValue="number axles" id="numberAxles">          <MenuItem value='2'>2</MenuItem> 
         <MenuItem value='2'>2</MenuItem>          
         </Select>      
-    </FormControl>    
+   {/* </FormControl>    */} 
 
-    <FormControl className={classes.formControl}>        
+  {/*  <FormControl className={classes.formControl}>    */}     
     <InputLabel htmlFor="engine">
        Engine
     </InputLabel>                
@@ -193,9 +203,9 @@ return (
         <MenuItem value='L9-400'>L9-400</MenuItem>
         <MenuItem value='L9-450'>L9-450</MenuItem>
         </Select>      
-    </FormControl> 
+ {/*   </FormControl> */} 
 
-    <FormControl className={classes.formControl}>        
+ {/*   <FormControl className={classes.formControl}>    */}     
     <InputLabel htmlFor="fuelTankSize">
        Fuel Tank Size
     </InputLabel>                
@@ -204,9 +214,9 @@ return (
         <MenuItem value='65'>65 Gallons</MenuItem>
         <MenuItem value='100'>100 Gallons</MenuItem>
         </Select>      
-    </FormControl> 
+  {/*  </FormControl> */} 
 
-    <FormControl>
+ {/*   <FormControl>*/} 
     <InputLabel htmlFor="engine">
        Batteries
     </InputLabel>                
@@ -214,9 +224,9 @@ return (
         <MenuItem value='3-Array'>3-Array</MenuItem>
         <MenuItem value='6-Array'>6-Array</MenuItem>
         </Select>      
-    </FormControl> 
+ {/*   </FormControl> */} 
 
-    <FormControl>
+  {/*  <FormControl>*/} 
     <InputLabel htmlFor="batteryCharging">
        Battery Charging
     </InputLabel>                
@@ -225,9 +235,9 @@ return (
         <MenuItem value='auto charge'>Auto Charge</MenuItem>   
         <MenuItem value='autocharge/pump plus'>Auto Charge/Pump Plus</MenuItem>
         </Select>   
-    </FormControl>
+  {/*  </FormControl>*/} 
 
-    <FormControl>
+  {/*  <FormControl>*/} 
     <InputLabel htmlFor="alternator">
        Alternator
     </InputLabel>                
@@ -237,9 +247,9 @@ return (
         <MenuItem value='Delco 430'>Delco 430</MenuItem>
         <MenuItem value='Niehoff 360'>Niehoff 360</MenuItem>
         </Select>      
-    </FormControl> 
+  {/*  </FormControl> */} 
 
-    <FormControl>
+  {/*  <FormControl>*/} 
     <InputLabel htmlFor="electrical">
        Electrical System
     </InputLabel>                
@@ -247,10 +257,10 @@ return (
         <MenuItem value='Point to point'>Point-to-Point</MenuItem>
         <MenuItem value='Akron VMUX'>Akron VMUX</MenuItem>
        </Select>
-    </FormControl>
+  {/*  </FormControl>*/} 
 
 
-    <FormControl>
+  {/*  <FormControl>*/} 
     <InputLabel htmlFor="electricalDisplaySwitch">
        Electrical Display
     </InputLabel>                
@@ -259,10 +269,10 @@ return (
         <MenuItem value='Vista Display'>Vista Display</MenuItem>
         <MenuItem value='Vista Displays (2)'>Vista Displays x2</MenuItem>
        </Select>
-    </FormControl>
+   {/* </FormControl>*/} 
 
 
-    <FormControl>
+   {/*  <FormControl>*/} 
     <InputLabel htmlFor="wheelType">
        Wheels
     </InputLabel>                
@@ -270,10 +280,10 @@ return (
         <MenuItem value='Painted Steel'>Painted Steel</MenuItem>
         <MenuItem value='Aluminum'>Aluminum</MenuItem>
        </Select>
-    </FormControl>
+  {/*  </FormControl>*/} 
 
 
-    <FormControl>
+  {/*  <FormControl>*/} 
     <InputLabel htmlFor="tires">
        Tires
     </InputLabel>                
@@ -281,10 +291,10 @@ return (
         <MenuItem value='Goodyear'>Goodyear</MenuItem>
         <MenuItem value='Michelin'>Michelin</MenuItem>
        </Select>
-    </FormControl>
+  {/*  </FormControl>*/} 
 
 
-    <FormControl>
+  {/*  <FormControl>*/} 
     <InputLabel htmlFor="suspension">
        Suspension
     </InputLabel>                
@@ -292,10 +302,9 @@ return (
         <MenuItem value='spring'>Spring-based</MenuItem>
         <MenuItem value='air ride'>Air Ride</MenuItem>
        </Select>
-    </FormControl>
+  {/*  </FormControl>*/} 
 
-
-    <FormControl>
+  {/*  <FormControl>*/} 
     <InputLabel htmlFor="shocks">
        Shocks
     </InputLabel>                
@@ -303,10 +312,9 @@ return (
         <MenuItem value='0'>0</MenuItem>
         <MenuItem value='2'>2</MenuItem>
        </Select>
-    </FormControl>
+  {/*  </FormControl>*/} 
 
-
-    <FormControl>
+  {/*  <FormControl>*/} 
     <InputLabel htmlFor="brakes">
        Brakes
     </InputLabel>                
@@ -314,7 +322,12 @@ return (
         <MenuItem value='disc'>Disc</MenuItem>
         <MenuItem value='"S" Cam'>"S" Cam</MenuItem>
        </Select>
-    </FormControl>
+  {/*  </FormControl>*/} 
 
-</div>  )}
+    <button onClick={this.handleCreateTruck}>Create Truck</button>
+</form>
+   
+</div>  
+</div>
+)}
 }

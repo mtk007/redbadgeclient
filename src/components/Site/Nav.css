@@ -1,18 +1,23 @@
-import styled from {styled-components};
-
-interface INav {
-  open: boolean;
-  href?: string;
+.sidebar-list-styling {
+  cursor: pointer;
+  background-color: #ca2510;
+  opacity: 0.3;
 }
 
-export const StyledBurger = styled.div<INav>`
-  width: 2rem;
-  height: 2rem;
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 20;
-  display: none;
+
+.main {
+  background-color: #ca2510;
+  opacity: 0.3;
+}
+
+.logo {
+  width: Zpx; 
+  height: Ypx; 
+
+}
+
+/* 
+
 
   @media (max-width: 768px) {
     display: flex;
@@ -40,7 +45,7 @@ export const StyledBurger = styled.div<INav>`
   }
 `
 
-export const Nav = styled.nav`
+
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -96,7 +101,6 @@ export const Ul = styled.ul<INav>`
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #fdfdfdfa;
     position: fixed;
     transform: ${(props) => props.open ? 'translateX(0)' : 'translateX(100%)'};
     top: -16px;
@@ -168,4 +172,4 @@ export const Icon = styled.div`
         transform: rotate(360deg);
       }
   }
-`
+` */

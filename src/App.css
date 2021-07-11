@@ -48,14 +48,16 @@ ul {
 
 /* Sidebar */
 .sidebar-list-styling{
-  padding-left: 50px;
+  padding-left: 20px;
   padding-top: 15px;
+  padding-right: 20px;
   width: 20%;
-  background-color: #53565A;
+  background-color: #ca2510;
   color: white;
 }
 
 .sidebar-list a{
+  margin-top: 2em;
   color: white;
   padding: 0;
 }
@@ -70,17 +72,28 @@ ul {
   margin-top: 0.5em!important;
   text-align: center;
   background-color: #ca2510;
+  border-color: blue;  
+  border-width: 10px;
   color: white;
+  
 }
 
 .header a {
   color: white;
+  line-height: 2.5;
+  padding-right: 15px;
 }
 
 .header p {
   margin-top: 0.8em!important;
 }
 
+button {
+  border-color: rgba(23, 36, 221, 50);
+  border-radius: 5px;
+  margin-top: 2em;
+  background-color: rgba(141, 213, 247, 50);
+}
 
 
 

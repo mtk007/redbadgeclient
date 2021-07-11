@@ -1,6 +1,6 @@
-
 import React, {Component} from 'react';
 import { Form, Button, Input } from 'reactstrap';
+
 //create here or import input interface from components folder
 //import material UI buttons
 
@@ -24,12 +24,13 @@ export default class Login extends Component <AcceptedProps, UserData>
                 role: '',
             }
         }
-//need to put in heroku fetch at some point when ready to do so
-    handleSubmit = (event:any) => {
+        
+        //http://localhost:911/user/login
+            handleSubmit = (event:any) => {
      event.preventDefault();
-     fetch('http://localhost:911/user/login', {
+     fetch('http://firetruckbuilder.herokuapp.com/user/login', {
          method: 'POST',
-         body: JSON.stringify({user:{email: this.state.email, password: this.state.password, role: this.state.role}}),
+         body: JSON.stringify({user:{email: this.state.email, password: this.state.password}}),
          headers: new Headers({
              'Content-Type': 'application/json'
          })
@@ -56,24 +57,16 @@ handlePasswordInput(event:any) {
      return(
     <>
     <form>
-        {/* <div className='login'>
-        <h1>Login</h1>
-        <label htmlFor="email">Email:</label>
-        <br/>
-        <input type="text" 
-        id='loginemail' 
-        value={email} 
-        onChange={(event) => setEmail(event.target.value)} />
-        <br/>
-        <label htmlFor="password">Password:</label>
-        <br/>
-        <input type="password" 
-        id='loginpassword' 
-        value={password} 
-        onChange={(event) => setPassword(event.target.value)} />
-        <br/>
-        <button type="submit" onClick={handleSubmit}>Submit</button>         
-         </div> */}
+    <div className='main'>
+                <div className='mainDiv'>
+                    <Form>
+                        <h2>Login</h2>
+                        <Input placeholder='Email' type="text" onChange={this.handleEmailInput.bind(this)} />
+                        <Input placeholder='Password' type="text" onChange={this.handlePasswordInput.bind(this)} />
+                        <Button onClick={this.handleSubmit.bind(this)}>Login</Button>
+                    </Form>
+                </div>
+            </div>
     </form>
 </>
   ) }}

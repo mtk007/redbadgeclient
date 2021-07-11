@@ -7,7 +7,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { render } from '@testing-library/react';
-import classes from '*.module.css'; //probably not what I actually need to do
+//import classes from '*.module.css'; //probably not what I actually need to do
 
 type PumpData = {
     pumpModel: string,
@@ -24,17 +24,11 @@ type PumpData = {
     interfaceControls: string,
     tankFill: string,
     boosterHose: number,
-    truckId?: number
+    truckId: number
 }
 
 type AcceptedProps= {
     sessionToken: string | null,
-}
-
-//??????? it's not finding handlesubmit at the end on the actual button//
-
-class submit extends Component {
-    handlesubmit = () => {}
 }
 
 
@@ -61,12 +55,9 @@ export default class CreatePump extends Component<AcceptedProps, PumpData> {
 }
 
 //get all pump
-componentDidMount(){
 handlesubmit = (e:any) => {
 e.preventDefault();
-
-
-    fetch('http://localhost:911/pump/pumpfeatures/getpumpfeatures', {
+    fetch('http://firetruckbuilder.herokuapp.com/pump/pumpfeatures/getpumpfeatures', {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',
@@ -77,12 +68,12 @@ e.preventDefault();
     ).then((data) => {
         console.log(data)
     })
-}}
+}
 
  //create pump
-handleCreatePump = (event: any) => { 
-    event.preventDefault(); 
-    fetch('http://localhost:911/pump/pumpfeatures/create', {
+handleCreatePump = (e: any) => { 
+    e.preventDefault(); 
+    fetch('http://firetruckbuilder.herokuapp.com/pump/pumpfeatures/create', {
             method: 'POST',
 
             //not sure here on format - this.state. ?
@@ -100,13 +91,17 @@ handleCreatePump = (event: any) => {
     }
 
 //update pump
-    handleUpdatePump = (event: any) => { 
-        event.preventDefault(); 
+    handleUpdatePump = (e: any) => { 
+        e.preventDefault(); 
         console.log(this.state);
-        fetch('http://localhost:911/pump/pumpfeatures/update/${id}', {
+        fetch('http://firetruckbuilder.herokuapp.com/pump/pumpfeatures/update/${id}', {
                 method: 'PUT',
-    
-                body: JSON.stringify({pumpModel: this.state.pumpModel, primer: this.state.primer, pumpShift: this.state.pumpShift, anodeMonitor: this.state.anodeMonitor, thermalRV: this.state.thermalRV, frontSuctionMethod: this.state.frontSuctionMethod, frontSuctionValve: this.state.frontSuctionValve, swivel: this.state.swivel, rearSuctionMethod: this.state.rearSuctionMethod, rearSuctionValve: this.state.rearSuctionValve, interfaceCover: this.state.interfaceCover, interfaceControls: this.state.interfaceControls, tankFill: this.state.tankFill, boosterHose: this.state.boosterHose, truckId: this.state.truckId} ), 
+                body: JSON.stringify({
+                    pumpModel: this.state.pumpModel, primer: this.state.primer, pumpShift: this.state.pumpShift, anodeMonitor: this.state.anodeMonitor, 
+                    thermalRV: this.state.thermalRV, frontSuctionMethod: this.state.frontSuctionMethod, frontSuctionValve: this.state.frontSuctionValve, 
+                    swivel: this.state.swivel, rearSuctionMethod: this.state.rearSuctionMethod, rearSuctionValve: this.state.rearSuctionValve, 
+                    interfaceCover: this.state.interfaceCover, interfaceControls: this.state.interfaceControls, tankFill: this.state.tankFill, 
+                    boosterHose: this.state.boosterHose, truckId: this.state.truckId}), 
     
                 headers: new Headers({
                     'Content-Type': 'application/json',
@@ -138,10 +133,11 @@ handleBoosterHose(e: any) {this.setState({boosterHose: e.targetvalue})}
 
 render(){
 return (    
-    <div className={classes.divControl}>
-    <div className='pumpDiv'>    
+ //   <div className={classes.divControl}>
+ <div className='main'>  
+ <div className='maindiv'>   
 <form>
-      <FormControl className={classes.formControl}>        
+     {/* <FormControl className={classes.formControl}>     */}   
       <InputLabel htmlFor="pumpModel">
          Pump Model
       </InputLabel>                
@@ -156,9 +152,9 @@ return (
           <MenuItem value='Waterous CMU'>Waterous CMU</MenuItem>
           <MenuItem value='Darley'>Darley</MenuItem>
           </Select>      
-      </FormControl>      
+    {/*  </FormControl>      */}
 
-      <FormControl className={classes.formControl}>        
+     {/* <FormControl className={classes.formControl}>    */}    
       <InputLabel htmlFor="primer">
          Primer
       </InputLabel>                
@@ -167,9 +163,9 @@ return (
           <MenuItem value='Air - Manual'>Air - Manual</MenuItem>
           <MenuItem value='Air - Auto'>Air - Auto</MenuItem>
           </Select>      
-      </FormControl>  
+  {/*  </FormControl>  */}
 
-      <FormControl className={classes.formControl}>        
+    {/*  <FormControl className={classes.formControl}>        */}
       <InputLabel htmlFor="pumpShift">
          Pump Shift 
       </InputLabel>                
@@ -177,9 +173,9 @@ return (
           <MenuItem value='Standard'>Standard</MenuItem>
           <MenuItem value='Standard w/Override'>Standard w/Override</MenuItem>
           </Select>      
-      </FormControl> 
+   {/*   </FormControl> */}
 
-    <FormControl className={classes.formControl}>        
+  {/*  <FormControl className={classes.formControl}>        */}
       <InputLabel htmlFor="anodeMonitor">
          Anode Monitor 
       </InputLabel>                
@@ -187,9 +183,9 @@ return (
           <MenuItem value='Yes'>Yes</MenuItem>
           <MenuItem value='No'>No</MenuItem>
           </Select>      
-      </FormControl> 
+    {/*  </FormControl> */}
 
-      <FormControl className={classes.formControl}>        
+    {/*  <FormControl className={classes.formControl}>        */}
       <InputLabel htmlFor="thermalRV">
          Thermal RV 
       </InputLabel>                
@@ -200,9 +196,9 @@ return (
           <MenuItem value='TRV w/light'>TRV w/Light</MenuItem>
           <MenuItem value='TRV w/light & alarm'>TRV w/Light & Alarm</MenuItem>
           </Select>      
-      </FormControl> 
+   {/*   </FormControl> */}
 
-      <FormControl className={classes.formControl}>        
+  {/*    <FormControl className={classes.formControl}>   */}     
       <InputLabel htmlFor="frontSuctionMethod">
          Front Pump Suction Method 
       </InputLabel>                
@@ -211,9 +207,9 @@ return (
           <MenuItem value='electric valve'>Electric Valve</MenuItem>
           <MenuItem value='air valve'>Air Valve</MenuItem>
           </Select>      
-      </FormControl> 
+  {/*    </FormControl> */}
 
-      <FormControl className={classes.formControl}>        
+  {/*    <FormControl className={classes.formControl}>    */}    
       <InputLabel htmlFor="frontSuctionValve">
          Front Pump Suction Valve 
       </InputLabel>                
@@ -226,9 +222,9 @@ return (
           <MenuItem value='5" w/Air Valve'>5" - Air Valve</MenuItem>
           <MenuItem value='5" w/Electric Valve'>5" - Electric Valve</MenuItem>
           </Select>      
-      </FormControl>
+  {/*    </FormControl> */}
 
-      <FormControl className={classes.formControl}>        
+  {/*    <FormControl className={classes.formControl}>   */}     
       <InputLabel htmlFor="swivel">
          Swivel 
       </InputLabel>                
@@ -236,9 +232,9 @@ return (
           <MenuItem value='Yes'>Yes</MenuItem>
           <MenuItem value='No'>No</MenuItem>
           </Select>      
-      </FormControl>
+  {/*    </FormControl> */}
 
-      <FormControl className={classes.formControl}>        
+   {/*   <FormControl className={classes.formControl}>     */}   
       <InputLabel htmlFor="rearSuctionMethod">
          Rear Pump Suction Method 
       </InputLabel>                
@@ -247,9 +243,9 @@ return (
           <MenuItem value='electric valve'>Electric Valve</MenuItem>
           <MenuItem value='air valve'>Air Valve</MenuItem>
           </Select>      
-      </FormControl>
+  {/*    </FormControl> */}
 
-      <FormControl className={classes.formControl}>        
+{/*      <FormControl className={classes.formControl}>     */}   
       <InputLabel htmlFor="rearSuctionValve">
          Rear Pump Suction Valve 
       </InputLabel>                
@@ -261,9 +257,9 @@ return (
           <MenuItem value='3" Handwheel Valve'>3" Handwheel Valve</MenuItem>
           <MenuItem value='3" Electric Valve'>3" Electric Valve</MenuItem>
           </Select>      
-      </FormControl>
+   {/*   </FormControl> */}
 
-      <FormControl className={classes.formControl}>        
+  {/*    <FormControl className={classes.formControl}>        */}
       <InputLabel htmlFor="interfaceCover">
          Interface Cover 
       </InputLabel>                
@@ -272,9 +268,9 @@ return (
           <MenuItem value='Hypalon'>Hypalon</MenuItem>
           <MenuItem value='Treadplate'>Treadplate</MenuItem>
           </Select>      
-      </FormControl>
+  {/*    </FormControl>*/}
 
-      <FormControl className={classes.formControl}>        
+   {/*   <FormControl className={classes.formControl}>       */} 
       <InputLabel htmlFor='interfaceControls'>
          Interface Controls 
       </InputLabel>                
@@ -283,9 +279,9 @@ return (
           <MenuItem value='Double'>Double</MenuItem>
           <MenuItem value='Triple'>Triple</MenuItem>
           </Select>      
-      </FormControl>
+   {/*   </FormControl>
 
-      <FormControl className={classes.formControl}>        
+   {/*   <FormControl className={classes.formControl}>      */}  
       <InputLabel htmlFor='tankFill'>
          Tank Filling
       </InputLabel>                
@@ -294,9 +290,9 @@ return (
           <MenuItem value='Tank 1 power'>Tank 1 - Powered</MenuItem>
           <MenuItem value='Both Tanks power'>Tanks 1+2 - Powered</MenuItem>
           </Select>      
-      </FormControl>
+    {/*  </FormControl> */}
 
-      <FormControl className={classes.formControl}>        
+   {/*   <FormControl className={classes.formControl}>   */}     
       <InputLabel htmlFor='boosterHose'>
          Booster Hose 
       </InputLabel>                
@@ -304,12 +300,12 @@ return (
           <MenuItem value='0'>None</MenuItem>
           <MenuItem value='1'>One</MenuItem>
           </Select>      
-      </FormControl>
-      <button onClick={this.handlesubmit.bind(this)}>Create Pump</button>
+   {/*   </FormControl>*/}
+
+
+      <button onClick={this.handleCreatePump}>Create Pump</button>
  </form>
-</div></div>
-
-
-)};
-
+ </div>
+</div>
+)}
 }

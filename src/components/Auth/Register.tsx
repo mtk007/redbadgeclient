@@ -1,5 +1,5 @@
-// //FROM WORKOUT LOG - ACTUALLY WORKS
 import React, {Component} from 'react';
+import { Form, Button, Input } from 'reactstrap';
 
 //import material UI buttons
 
@@ -23,10 +23,10 @@ export default class Register extends Component<AcceptedProps, RegisterState>{
                 role: 'user',
             }
         }
-
+        //http://localhost:911/user/register
     handleSubmit = (event:any) => {
     event.preventDefault();
-    fetch("http://localhost:911/user/register", {
+    fetch('http://firetruckbuilder.herokuapp.com/user/register', {
         method: 'POST',
         body: JSON.stringify({user:{email: this.state.email, password: this.state.password, role: this.state.role}}),
         headers: new Headers({
@@ -59,15 +59,16 @@ render(){
 return(
 
     <>
-    {/* label: string;
-    formFeedBack: string;
-    formText: string;
-    onChange: {} />
-       <h1>Register</h1>
-      <Input placeholder="Email" type="text" onChange={this.handleEmailInput.bind(this)} />
-      <Input placeholder="Password" type="text" onChange={this.handlePasswordInput.bind(this)} />
-      <Button onClick={this.handleSubmit}>Register</Button>
-    </RegisterField> */}
+   <div className='main'>
+                <div className='mainDiv'>
+                    <Form>
+                        <h2>Register</h2>
+                        <Input placeholder='Email' type="text" onChange={this.handleEmailInput.bind(this)} />
+                        <Input placeholder='Password' type="text" onChange={this.handlePasswordInput.bind(this)} />
+                        <Button onClick={this.handleSubmit}>Sign Up</Button>
+                    </Form>
+                </div>
+            </div>
 
     </>
 )}
