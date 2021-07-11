@@ -7,6 +7,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { render } from '@testing-library/react';
+import APIURL from '../Site/environment';
 //import classes from '*.module.css'; //probably not what I actually need to do
 
 type PumpData = {
@@ -57,7 +58,7 @@ export default class CreatePump extends Component<AcceptedProps, PumpData> {
 //get all pump
 handlesubmit = (e:any) => {
 e.preventDefault();
-    fetch('http://firetruckbuilder.herokuapp.com/pump/pumpfeatures/getpumpfeatures', {
+    fetch(`${APIURL}/pump/pumpfeatures/getpumpfeatures`, {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',
@@ -73,7 +74,7 @@ e.preventDefault();
  //create pump
 handleCreatePump = (e: any) => { 
     e.preventDefault(); 
-    fetch('http://firetruckbuilder.herokuapp.com/pump/pumpfeatures/create', {
+    fetch(`${APIURL}/pump/pumpfeatures/create`, {
             method: 'POST',
 
             //not sure here on format - this.state. ?
@@ -91,10 +92,9 @@ handleCreatePump = (e: any) => {
     }
 
 //update pump
-    handleUpdatePump = (e: any) => { 
-        e.preventDefault(); 
+    handleUpdatePump = (id: number) => { 
         console.log(this.state);
-        fetch('http://firetruckbuilder.herokuapp.com/pump/pumpfeatures/update/${id}', {
+        fetch(`${APIURL}/pump/pumpfeatures/update/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     pumpModel: this.state.pumpModel, primer: this.state.primer, pumpShift: this.state.pumpShift, anodeMonitor: this.state.anodeMonitor, 

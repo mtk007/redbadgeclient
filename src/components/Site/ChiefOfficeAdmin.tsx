@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link, Switch} from 'react-router-dom';
 import { Label, Input } from 'reactstrap';
 import { Form } from 'reactstrap';
+import APIURL from '../Site/environment';
 
 type AcceptedProps = {
     updateToken: (newToken: string) => void,

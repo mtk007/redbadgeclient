@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Form, Button, Input } from 'reactstrap';
+import APIURL from '../Site/environment';
 
 //create here or import input interface from components folder
 //import material UI buttons
@@ -24,11 +25,11 @@ export default class Login extends Component <AcceptedProps, UserData>
                 role: '',
             }
         }
-        
+
         //http://localhost:911/user/login
             handleSubmit = (event:any) => {
      event.preventDefault();
-     fetch('http://firetruckbuilder.herokuapp.com/user/login', {
+     fetch(`${APIURL}/user/login`, {
          method: 'POST',
          body: JSON.stringify({user:{email: this.state.email, password: this.state.password}}),
          headers: new Headers({

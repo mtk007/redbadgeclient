@@ -12,6 +12,7 @@ import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 // import Home from './Home';
 //import { mafslogo } from '../../assets/'
+import APIURL from '../Site/environment';
 
 type AcceptedProps = {
     updateToken: (newToken: string) => void,

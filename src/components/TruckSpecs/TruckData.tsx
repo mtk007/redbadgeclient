@@ -7,10 +7,12 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { render } from '@testing-library/react';
+import APIURL from '../Site/environment';
 //import classes from '*.module.css';  //probably not what I actually need to do
 
 
 type TruckData = {
+    id: number,
     truckType: string, 
     numberAxles: number,
     engine: string, 
@@ -40,6 +42,7 @@ Component<AcceptedProps, TruckData> {
         super(props)
         this.state = {
          // addTruck: [          ]
+          id: 0,
           truckType: '',
           numberAxles: 0,
           engine: '',  
@@ -70,7 +73,7 @@ Component<AcceptedProps, TruckData> {
    
     handlesubmit = (e:any) => {
      e.preventDefault();
-     fetch('http://firetruckbuilder.herokuapp.com/truck/truckbasics/getalltrucks', {
+     fetch(`${APIURL}/truck/truckbasics/getalltrucks`, {
          method: 'GET',
          headers: new Headers({
             'Content-Type': 'application/json',
@@ -85,9 +88,9 @@ Component<AcceptedProps, TruckData> {
 
  //get truck by ID
  //
-handleGetTruckId = (e: any) => {
-    e.preventDefault();
-    fetch('http://firetruckbuilder.herokuapp.com/truck/truckbasics/getmytrucks/${id}', {
+handleGetTruckId = (id: number) => {
+
+    fetch(`${APIURL}/truck/truckbasics/getmytrucks/${id}`, {
     method: 'GET',
     //NEED HEADERS HERE?   
     headers: new Headers({
@@ -106,7 +109,7 @@ handleGetTruckId = (e: any) => {
 
 handleCreateTruck = (e: any) => {
     e.preventDefault();
-    fetch('http://firetruckbuilder.herokuapp.com/truck/truckbasics/create', {
+    fetch(`${APIURL}/truck/truckbasics/create`, {
         method: 'POST',
         body: JSON.stringify({
 
@@ -127,10 +130,10 @@ handleCreateTruck = (e: any) => {
 
 //update truck
 //
-handleUpdateTruck = (e: any) => { 
-    e.preventDefault(); 
+handleUpdateTruck = (id: number) => { 
+  
     console.log(this.state);
-    fetch('http://firetruckbuilder.herokuapp.com/truck/truckbasics/update/${id}', {
+    fetch(`${APIURL}/truck/truckbasics/update/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 truckType: this.state.truckType, numberAxles: this.state.numberAxles, 

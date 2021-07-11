@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Form, Button, Input } from 'reactstrap';
+import APIURL from '../Site/environment';
 
 //import material UI buttons
 
@@ -26,7 +27,7 @@ export default class Register extends Component<AcceptedProps, RegisterState>{
         //http://localhost:911/user/register
     handleSubmit = (event:any) => {
     event.preventDefault();
-    fetch('http://firetruckbuilder.herokuapp.com/user/register', {
+    fetch(`${APIURL}/user/register`, {
         method: 'POST',
         body: JSON.stringify({user:{email: this.state.email, password: this.state.password, role: this.state.role}}),
         headers: new Headers({

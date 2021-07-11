@@ -7,6 +7,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Site/header';
 import Navbar from './components/Site/Nav';
 import { render } from 'react-dom';
+import APIURL from './components/Site/environment';
+
 //import Admin from './components/Site/ChiefOfficeAdmin';
 
 //don't forget to import the major components here
