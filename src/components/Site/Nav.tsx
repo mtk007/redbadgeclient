@@ -13,6 +13,7 @@ import Register from '../Auth/Register';
 // import Home from './Home';
 //import { mafslogo } from '../../assets/'
 import APIURL from '../Site/environment';
+import navLogo from '../../assets/mafslogo.png'
 
 type AcceptedProps = {
     updateToken: (newToken: string) => void,
@@ -27,7 +28,8 @@ const Navbar: React.FunctionComponent<AcceptedProps> = (props) => {
                                                             </div> 
             <div className='sidebar-list-styling'>
                 <ul className='sidebar-list list-unstyled'>
-                <img src="./src/assets/mafslogo.png" alt="mafslogo"/>
+                <img src={navLogo} alt="mafslogo"/>
+             
                     {/*<li><Link to='/'>Home</Link></li>*/}
                     <li><Link to='/login'>Login</Link></li>
                     <li><Link to='register'>Register</Link></li>
