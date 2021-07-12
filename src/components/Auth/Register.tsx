@@ -27,7 +27,7 @@ export default class Register extends Component<AcceptedProps, RegisterState>{
         //http://localhost:911/user/register
     handleRegister = (event:any) => {
     event.preventDefault();
-    fetch(`${APIURL}/user/register`, {
+    fetch(`https://firetruckbuilder.herokuapp.com/user/register`, {
         method: 'POST',
         body: JSON.stringify({user:{email: this.state.email, password: this.state.password, role: this.state.role}}),
         headers: new Headers({
