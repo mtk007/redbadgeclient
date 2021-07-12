@@ -125,6 +125,7 @@ handleCreateTruck = (e: any) => {
                 (response) => response.json()
             ).then((data) => {
                 console.log(data);
+                
       })
 }
 
@@ -327,7 +328,7 @@ return (
        </Select>
   {/*  </FormControl>*/} 
 
-    <button onClick={this.handleCreateTruck}>Create Truck</button>
+    <button onClick={this.handleCreateTruck.bind(this)}>Create Truck</button>
 </form>
    
 </div>  
