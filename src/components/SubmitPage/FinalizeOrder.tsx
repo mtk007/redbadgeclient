@@ -5,7 +5,7 @@ import { render } from "@testing-library/react"
 
   type AcceptedProps = {
     updateToken: (newToken: string) => void,
-    sessionToken: string | null
+    sessionToken: string
 }  
 const FinalizeOrder: React.FunctionComponent<AcceptedProps> = (props) => {
   return(

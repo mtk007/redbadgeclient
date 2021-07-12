@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 type AcceptedProps = {
     updateToken: (newToken: string) => void,
-    sessionToken: string | null
+    sessionToken: string
 }
 
 const Help: React.FunctionComponent<AcceptedProps> = (props) => {

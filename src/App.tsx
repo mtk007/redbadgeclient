@@ -22,7 +22,7 @@ class App extends Component <Props, AppState>{
   constructor(props: Props){
       super(props);
       this.state = {
-        sessionToken:('')
+        sessionToken: '',
       }
     this.updateToken = this.updateToken.bind(this)
     this.clearToken = this.clearToken.bind(this)

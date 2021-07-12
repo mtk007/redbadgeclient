@@ -30,6 +30,7 @@ type PumpData = {
 
 type AcceptedProps= {
     sessionToken: string | null,
+    
 }
 
 
@@ -58,7 +59,7 @@ export default class CreatePump extends Component<AcceptedProps, PumpData> {
 //get all pump
 handlesubmit = (e:any) => {
 e.preventDefault();
-    fetch(`${APIURL}/pump/pumpfeatures/getpumpfeatures`, {
+    fetch(`${APIURL}/pumpfeatures/getpumpfeatures`, {
         method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/json',
@@ -73,28 +74,28 @@ e.preventDefault();
 
  //create pump
 handleCreatePump = (e: any) => { 
+    console.log(localStorage.token, 'props', this.props.sessionToken)
     e.preventDefault(); 
-    fetch(`${APIURL}/pump/pumpfeatures/create`, {
+    fetch(`${APIURL}/pumpfeatures/create`, {
             method: 'POST',
 
-            //not sure here on format - this.state. ?
             body: JSON.stringify({pumpModel: this.state.pumpModel, primer: this.state.primer, pumpShift: this.state.pumpShift, anodeMonitor: this.state.anodeMonitor, thermalRV: this.state.thermalRV, frontSuctionMethod: this.state.frontSuctionMethod, frontSuctionValve: this.state.frontSuctionValve, swivel: this.state.swivel, rearSuctionMethod: this.state.rearSuctionMethod, rearSuctionValve: this.state.rearSuctionValve, interfaceCover: this.state.interfaceCover, interfaceControls: this.state.interfaceControls, tankFill: this.state.tankFill, boosterHose: this.state.boosterHose, truckId: this.state.truckId}), 
 
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.token
-                     })
+                     }),
                 }).then(
                     (response) => response.json()
                 ).then((data) => {
                     console.log(data);
             })
-    }
+    };
 
 //update pump
     handleUpdatePump = (id: number) => { 
         console.log(this.state);
-        fetch(`${APIURL}/pump/pumpfeatures/update/${id}`, {
+        fetch(`${APIURL}/pumpfeatures/update/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     pumpModel: this.state.pumpModel, primer: this.state.primer, pumpShift: this.state.pumpShift, anodeMonitor: this.state.anodeMonitor, 
