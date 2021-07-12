@@ -17,7 +17,7 @@ class Footer extends Component {
   render() {
     return (<>
      
-       {/*<Typography variant="title">Mid America Fire Fire Apparatus Builder v1.0</Typography> */}
+       <h1>Mid America Fire Fire Apparatus Request System Beta</h1>
       
    </> );
   }

@@ -25,7 +25,7 @@ export default class Register extends Component<AcceptedProps, RegisterState>{
             }
         }
         //http://localhost:911/user/register
-    handleSubmit = (event:any) => {
+    handleRegister = (event:any) => {
     event.preventDefault();
     fetch(`${APIURL}/user/register`, {
         method: 'POST',
@@ -38,7 +38,7 @@ export default class Register extends Component<AcceptedProps, RegisterState>{
         (response) => response.json()
      )
     .then((data) => {
-        //this.props.updateToken(data.sessionToken)
+        this.props.updateToken(data.sessionToken)
     
         console.log(data);
     })
@@ -56,22 +56,32 @@ export default class Register extends Component<AcceptedProps, RegisterState>{
             })
         }
 
+        //EMAIL VALIDATION
+    // const [validEmail, setValidEmail] = useState(true);
+
+    //     const ValidateEmail = (val) => {
+    
+    //        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(val)){
+            
+    //         setValidEmail(true)
+    //      } else{
+    //          setValidEmail(false)    
+    // }
+
 render(){
 return(
 
-    <>
-   <div className='main'>
-                <div className='mainDiv'>
-                    <Form>
-                        <h2>Register</h2>
-                        <Input placeholder='Email' type="text" onChange={this.handleEmailInput.bind(this)} />
-                        <Input placeholder='Password' type="text" onChange={this.handlePasswordInput.bind(this)} />
-                        <Button onClick={this.handleSubmit}>Sign Up</Button>
-                    </Form>
-                </div>
-            </div>
+  <div className='main'>
+<div className='mainDiv'>
+    <form onSubmit={this.handleRegister}>
+        <h2>Register</h2>
+        <Input placeholder='Email' type="text" onChange={(e) => this.setState({...this.state, email: e.target.value})} />
+        <Input placeholder='Password' type="text" onChange={(e) => this.setState({...this.state, password: e.target.value})} />
+        <Button type='submit'>Register</Button>
 
-    </>
+    </form>
+</div>
+</div>
 )}
 
 }

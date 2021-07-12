@@ -24,12 +24,16 @@ export default class Login extends Component <AcceptedProps, UserData>
                 password: '',
                 role: '',
             }
+            this.handleSubmit = this.handleSubmit.bind(this);
+
         }
 
         //http://localhost:911/user/login
             handleSubmit = (event:any) => {
      event.preventDefault();
-     fetch(`${APIURL}/user/login`, {
+     console.log('hitting now')
+     console.log(this.state.email, this.state.password)
+     fetch(`http://firetruckbuilder.herokuapp.com/user/login/`, {
          method: 'POST',
          body: JSON.stringify({user:{email: this.state.email, password: this.state.password}}),
          headers: new Headers({
@@ -39,7 +43,7 @@ export default class Login extends Component <AcceptedProps, UserData>
          (response) => response.json()
      ).then((data) => {
          this.props.updateToken(data.sessionToken);
-     }) 
+     }).catch(err => console.log(err)) 
 }
 
 handleEmailInput(event:any) {
@@ -57,18 +61,17 @@ handlePasswordInput(event:any) {
  render(){
      return(
     <>
-    <form>
     <div className='main'>
                 <div className='mainDiv'>
-                    <Form>
+                    <form onSubmit={this.handleSubmit}>
                         <h2>Login</h2>
-                        <Input placeholder='Email' type="text" onChange={this.handleEmailInput.bind(this)} />
-                        <Input placeholder='Password' type="text" onChange={this.handlePasswordInput.bind(this)} />
-                        <Button onClick={this.handleSubmit.bind(this)}>Login</Button>
-                    </Form>
+                        <Input placeholder='Email' type="text" onChange={(e) => this.setState({...this.state, email: e.target.value})} />
+                        <Input placeholder='Password' type="text" onChange={(e) => this.setState({...this.state, password: e.target.value})} />
+                        <Button type='submit'>Login</Button>
+
+                    </form>
                 </div>
             </div>
-    </form>
 </>
   ) }}
     
