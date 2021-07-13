@@ -68,6 +68,8 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
       brakes: "",
       notes: "",
     };
+    this.handleCreateTruck.bind(this)
+    this.handleUpdateTruck.bind(this)
     // this.addTruck = this.addTruck.bind(this);
   }
    
@@ -410,10 +412,15 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             </Select>
           </FormControl>
 
-          <button onClick={this.handleCreateTruck.bind(this)}>
+          <button onClick={this.handleCreateTruck}>
             Create Truck
           </button>
          
+          {/* <button onClick={this.handleUpdateTruck}>
+            Update This Truck
+          </button> */}
+
+
         </div>
       </div>
       </div>

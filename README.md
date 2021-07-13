@@ -1,7 +1,6 @@
 # Mid-America Fire and Safety Fire Truck Builder Beta 
 Purpose: Select factory-offered specifications for fire apparatus build-out and submit them as an electronic order request. 
 
-# Source repo of this Project (will be set to private access post-Beta):
 
 # Deployed live via Heroku:
 ////////////////  https://firetruckbuilderclient.herokuapp.com/  ///////////////////////////
@@ -43,5 +42,6 @@ Login/Register general user
 addtl CRUD
 - TruckData.tsx  (truckbasicscontroller.js, trucksbasicsmodel.js)
 - PumpData.tsx   (pumpfeaturescontroller.js, pumpfeaturesmodel.js)
-
+- ViewTrucks.tsx
+- ViewPumps.tsx
 
