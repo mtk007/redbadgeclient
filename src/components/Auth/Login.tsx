@@ -9,7 +9,7 @@ import APIURL from '../Site/environment';
  type UserData = {
     email: string,
     password: string,
-    role: string,   //might be enum
+    //role: string,   //might be enum
 }
 
 type AcceptedProps = {
@@ -23,7 +23,7 @@ export default class Login extends Component <AcceptedProps, UserData>
             this.state={
                 email: '',
                 password: '',
-                role: '',
+                //role: '',
             }
             this.handleSubmit = this.handleSubmit.bind(this);
 
