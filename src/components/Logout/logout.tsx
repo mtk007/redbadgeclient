@@ -8,13 +8,13 @@ type AcceptedProps = {clearToken: ()=>
 }
 
 const Logout: React.FunctionComponent<AcceptedProps> = (props) => {
-
+             {
     return (
       <div> <button onClick = {props.clearToken} >
-        
+      Logged out
           </button>
           </div>
     );
-}
+}}
 
 export default Logout;

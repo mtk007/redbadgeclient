@@ -432,6 +432,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
           <button onClick={this.handleCreateTruck.bind(this)}>
             Create Truck
           </button>
+         
         </div>
       </div>
       </div>

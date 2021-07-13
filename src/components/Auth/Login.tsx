@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { render } from 'react-dom';
 import { Form, Button, Input } from 'reactstrap';
 import APIURL from '../Site/environment';
 
@@ -74,7 +75,10 @@ handlePasswordInput(event:any) {
                 </div>
             </div>
 </>
-  ) }}
+  )
+}
+
+}
     
 
 

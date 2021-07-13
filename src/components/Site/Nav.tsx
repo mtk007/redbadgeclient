@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, Link, Switch} from 'react-router-dom';
-import TruckBasics from '../TruckSpecs/TruckBasics';
 import TruckData from '../TruckSpecs/TruckData';
-import PumpFeatures from '../TruckSpecs/PumpFeatures';
 import PumpData from '../TruckSpecs/PumpData';
 import FinalizeOrder from '../SubmitPage/FinalizeOrder';
 import Logout from '../Logout/logout';
