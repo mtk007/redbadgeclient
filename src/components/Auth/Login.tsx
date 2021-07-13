@@ -14,6 +14,7 @@ import APIURL from '../Site/environment';
 
 type AcceptedProps = {
     updateToken: (newToken: string) => void
+    setAdmin: (role: string) => void
 }
 
 export default class Login extends Component <AcceptedProps, UserData>
@@ -34,7 +35,7 @@ export default class Login extends Component <AcceptedProps, UserData>
      event.preventDefault();
      console.log('hitting now')
      console.log(this.state.email, this.state.password)
-     fetch(`https://firetruckbuilder.herokuapp.com/user/login/`, {
+     fetch(`${APIURL}/user/login/`, {
          method: 'POST',
          body: JSON.stringify({user:{email: this.state.email, password: this.state.password}}),
          headers: new Headers({
@@ -44,7 +45,9 @@ export default class Login extends Component <AcceptedProps, UserData>
          (response) => response.json()
      ).then((data) => {
          this.props.updateToken(data.sessionToken);
-         localStorage.setItem('role', data.user.role)
+       //  localStorage.setItem('role', data.user.role)
+       console.log(data)
+       this.props.setAdmin(data.user.role)
      }).catch(err => console.log(err)) 
 }
 

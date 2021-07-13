@@ -18,10 +18,12 @@ type AcceptedProps = {
     updateToken: (newToken: string) => void,
     sessionToken: string | null
     clearToken: () => void
+    setAdmin: (role: string) => void
+    admin: boolean
 }
 
 const Navbar: React.FunctionComponent<AcceptedProps> = (props) => {
-    if(localStorage.getItem('role')=='admin'){
+    if(props.admin === true){
 
     
     return(
@@ -48,7 +50,7 @@ const Navbar: React.FunctionComponent<AcceptedProps> = (props) => {
             <div className='sidebar-route'>
                 <Switch>
                     {/*<Route exact path='/home'><Home /></Route>*/}
-                    <Route exact path='/login'><Login updateToken={props.updateToken}/></Route>
+                    <Route exact path='/login'><Login updateToken={props.updateToken} setAdmin={props.setAdmin}/></Route>
                     <Route exact path='/register'><Register updateToken={props.updateToken}/></Route>
                     <Route exact path='/truckdata'><TruckData sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/pumpdata'><PumpData sessionToken={props.sessionToken}/></Route>
@@ -85,7 +87,7 @@ const Navbar: React.FunctionComponent<AcceptedProps> = (props) => {
             <div className='sidebar-route'>
                 <Switch>
                     {/*<Route exact path='/home'><Home /></Route>*/}
-                    <Route exact path='/login'><Login updateToken={props.updateToken}/></Route>
+                    <Route exact path='/login'><Login setAdmin={props.setAdmin} updateToken={props.updateToken}/></Route>
                     <Route exact path='/register'><Register updateToken={props.updateToken}/></Route>
                     <Route exact path='/truckdata'><TruckData sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/pumpdata'><PumpData sessionToken={props.sessionToken}/></Route>

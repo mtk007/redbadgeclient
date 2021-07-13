@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { isPropertySignature } from 'typescript';
 import Footer from './components/Site/footer';
-import Auth from './components/Auth/Auth';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Site/header';
 import Navbar from './components/Site/Nav';
@@ -16,16 +15,19 @@ import APIURL from './components/Site/environment';
 type Props = {}
 type AppState = {
  sessionToken: string | null,
+ admin: boolean
  }
 
 class App extends Component <Props, AppState>{
   constructor(props: Props){
       super(props);
       this.state = {
+        admin: false,
         sessionToken: '',
       }
     this.updateToken = this.updateToken.bind(this)
     this.clearToken = this.clearToken.bind(this)
+    this.setAdmin = this.setAdmin.bind(this)
   }
 
 componentDidMount(){
@@ -34,6 +36,7 @@ componentDidMount(){
       sessionToken: localStorage.getItem('token')
     })
   }
+  console.log(`This:   ${this.state.sessionToken}`)
 }
 
 updateToken(newToken: string){
@@ -50,16 +53,15 @@ clearToken(){
     //sessionToken: ''
   }
 
-//  Admin
-// showAdmin(){
-//   render() => {
-//   return(
-//     <div>
+setAdmin(role: string){
+  if (role === "admin"){
+    this.setState({admin: true})
+  } else {
+    this.setState({admin: false})
+  }
 
-
-//     </div>
-//   )
-// }}
+  console.log(this.state)
+}
 
 
 render(){
@@ -67,7 +69,7 @@ render(){
     <div className="App">
     <Header />
     <Router>
-   <Navbar updateToken={this.updateToken} sessionToken={this.state.sessionToken} clearToken={this.clearToken}/>
+   <Navbar admin={this.state.admin} updateToken={this.updateToken} sessionToken={this.state.sessionToken} clearToken={this.clearToken} setAdmin={this.setAdmin}/>
    </Router>
     {/* pass clear token function via props into Navbar*/ }
    {/* <Navbar clearToken = {this.clearToken}/>*/}

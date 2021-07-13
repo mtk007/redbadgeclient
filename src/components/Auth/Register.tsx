@@ -14,7 +14,6 @@ type AcceptedProps = {
     updateToken: (newToken: string) => void
 }
 
-
 export default class Register extends Component<AcceptedProps, RegisterState>{
         constructor(props: AcceptedProps){
             super(props)
@@ -29,7 +28,7 @@ export default class Register extends Component<AcceptedProps, RegisterState>{
     event.preventDefault();
     fetch(`${APIURL}/user/register`, {
         method: 'POST',
-        body: JSON.stringify({user:{email: this.state.email, password: this.state.password, role: this.state.role}}),
+        body: JSON.stringify({user:{email: this.state.email, password: this.state.password}}),
         headers: new Headers({
             'Content-Type': 'application/json'
         })
@@ -42,7 +41,11 @@ export default class Register extends Component<AcceptedProps, RegisterState>{
     
         console.log(data);
     })
-  
+   .catch(
+       (err) => {
+           console.log(err)
+       }
+   )
 }
         handleEmailInput(event:any) {
             this.setState({

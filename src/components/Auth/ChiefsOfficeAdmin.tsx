@@ -68,6 +68,41 @@ export default class ChiefOffice extends Component<AcceptedProps, DeleteUser> {
         return(
             <div className='main'>
                 <div className='mainDiv'>
+                    {/* <Form>
+                        <Label>User's ID</Label>
+                        <Input onChange={(e) => this.setState({id: parseInt(e.target.value)})} />
+                        <br/>
+                        <Button  variant="contained" color="secondary" white-space="normal" word-wrap="break-word" startIcon={<DeleteIcon />} onClick={(e) => this.handleDelete(this.state.id)}>Welcome to the Fire Truck Builder!</Button>
+                        <br />
+                        <br />
+                        <Label>User ID</Label>
+                        <Input onChange={(e) => this.setState({userId: parseInt(e.target.value)})}/>
+                        <br />
+                        <Button onClick={(e) => this.handleDeletePost(this.state.userId)}>Delete A User</Button>
+                    </Form> */}
+                </div>
+            </div>
+        )
+    } else {
+        return(
+            <div>   
+                <h3>Proceed with Caution.</h3>
+    
+                <h3>Delete a user and all their orders</h3>
+                <Form>
+                        <Label>User's ID</Label>
+                        <Input onChange={(e) => this.setState({id: parseInt(e.target.value)})} />
+                        <br/>
+                        <Button  variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => this.handleDelete(this.state.id)}>Delete User and All Truck Orders</Button>
+                        <br />
+                        <br />
+                        <Label>User ID</Label>
+                        <Input onChange={(e) => this.setState({userId: parseInt(e.target.value)})}/>
+                        <br />
+                        <Button onClick={(e) => this.handleDeletePost(this.state.userId)}>Delete User</Button>
+                    </Form>
+
+                    <h3>Delete a user (but not their specifications history)</h3>
                     <Form>
                         <Label>User's ID</Label>
                         <Input onChange={(e) => this.setState({id: parseInt(e.target.value)})} />
@@ -80,13 +115,6 @@ export default class ChiefOffice extends Component<AcceptedProps, DeleteUser> {
                         <br />
                         <Button onClick={(e) => this.handleDeletePost(this.state.userId)}>Delete A User</Button>
                     </Form>
-                </div>
-            </div>
-        )
-    } else {
-        return(
-            <div>   
-                <h3>You just earned extra kitchen duty for trying to impersonate the District Chief.</h3>
             </div>
         )
     }
