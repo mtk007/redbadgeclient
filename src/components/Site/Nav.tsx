@@ -52,7 +52,7 @@ const Navbar: React.FunctionComponent<AcceptedProps> = (props) => {
                     <Route exact path='/register'><Register updateToken={props.updateToken}/></Route>
                     <Route exact path='/truckdata'><TruckData sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/pumpdata'><PumpData sessionToken={props.sessionToken}/></Route>
-                    <Route exact path='/cheifsofficeadmin'><ChiefOffice sessionToken={props.sessionToken}/></Route>
+                    <Route exact path='/chiefsofficeadmin'><ChiefOffice sessionToken={props.sessionToken}/></Route>
                    {/* <Route exact path='/finalizeorder'><FinalizeOrder sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/help'><Help sessionToken={props.sessionToken}/></Route>
     <Route exact path='/admin'><Admin sessionToken={props.sessionToken}/></Route> */}
