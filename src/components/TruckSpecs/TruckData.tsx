@@ -17,7 +17,7 @@ type TruckData = {
   numberAxles: number;
   engine: string;
   fuelTankSize: number;
-  batteries: number;
+  batteries: string;
   batteryCharging: string;
   alternator: string;
   electrical: string;
@@ -56,7 +56,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
       numberAxles: 0,
       engine: "",
       fuelTankSize: 0,
-      batteries: 0,
+      batteries: "",
       batteryCharging: "",
       alternator: "",
       electrical: "",
