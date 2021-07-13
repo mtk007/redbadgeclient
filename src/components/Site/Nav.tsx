@@ -7,13 +7,14 @@ import PumpData from '../TruckSpecs/PumpData';
 import FinalizeOrder from '../SubmitPage/FinalizeOrder';
 import Logout from '../Logout/logout';
 import Help from '../Site/Help';
-//import Admin from '../Site/ChiefOfficeAdmin';
+import Admin from '../Auth/ChiefsOfficeAdmin';
 import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 // import Home from './Home';
-//import { mafslogo } from '../../assets/'
 import APIURL from '../Site/environment';
 import navLogo from '../../assets/mafslogo.png'
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import ChiefOffice from '../Auth/ChiefsOfficeAdmin';
 
 type AcceptedProps = {
     updateToken: (newToken: string) => void,
@@ -38,7 +39,7 @@ const Navbar: React.FunctionComponent<AcceptedProps> = (props) => {
                     <li><Link to='register'>Register</Link></li>
                     <li><Link to='/truckdata'>Configure Truck</Link></li>
                     <li><Link to='/pumpdata'>Configure Pump</Link></li>
-                    <li><Link to='/pumpdata'>Admin Portal</Link></li>
+                    <div className='chief'><li><Link to='/chiefsofficeadmin'>Chief's Admin Office</Link></li></div>
                    {/* <li><Link to='/finalizeorder'>Finalize Order</Link></li>*/}
                    {/*   <li><Link to='/help'>Help</Link></li>   */}
                    {/*   <li><Link to='/admin'>Admin</Link></li> */}
@@ -53,6 +54,7 @@ const Navbar: React.FunctionComponent<AcceptedProps> = (props) => {
                     <Route exact path='/register'><Register updateToken={props.updateToken}/></Route>
                     <Route exact path='/truckdata'><TruckData sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/pumpdata'><PumpData sessionToken={props.sessionToken}/></Route>
+                    <Route exact path='/cheifsofficeadmin'><ChiefOffice sessionToken={props.sessionToken}/></Route>
                    {/* <Route exact path='/finalizeorder'><FinalizeOrder sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/help'><Help sessionToken={props.sessionToken}/></Route>
     <Route exact path='/admin'><Admin sessionToken={props.sessionToken}/></Route> */}

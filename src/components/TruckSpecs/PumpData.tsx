@@ -129,7 +129,7 @@ handleRearSuctionValve(e: any) {this.setState({rearSuctionValve: e.targetvalue})
 handleInterfaceCover(e: any) {this.setState({interfaceCover: e.targetvalue})}
 handlefInterfaceControls(e: any) {this.setState({interfaceControls: e.targetvalue})}
 handleTankFilling(e: any) {this.setState({tankFill: e.targetvalue})}
-handleBoosterHose(e: any) {this.setState({boosterHose: e.targetvalue})}
+handleBoosterHose(e: any) {this.setState({boosterHose: parseInt(e.targetvalue)})}
 
 
 render(){
