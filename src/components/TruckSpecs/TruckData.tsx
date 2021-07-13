@@ -184,51 +184,51 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
   };
 
   handleTruckModel(e: any) {
-    this.setState({ truckType: e.targetvalue });
+    this.setState({ truckType: e.target.value });
   }
   handleAxles(e: any) {
-    this.setState({ numberAxles: e.targetvalue });
+    this.setState({ numberAxles: e.target.value });
   }
   handleEngine(e: any) {
-    this.setState({ engine: e.targetvalue });
+    this.setState({ engine: e.target.value });
   }
   handleFuelTank(e: any) {
-    this.setState({ fuelTankSize: e.targetvalue });
+    this.setState({ fuelTankSize: e.target.value });
   }
   handleBatteries(e: any) {
-    this.setState({ batteries: e.targetvalue });
+    this.setState({ batteries: e.target.value });
   }
   handleBatteryCharging(e: any) {
-    this.setState({ batteryCharging: e.targetvalue });
+    this.setState({ batteryCharging: e.target.value });
   }
   handleAlternator(e: any) {
-    this.setState({ alternator: e.targetvalue });
+    this.setState({ alternator: e.target.value });
   }
   handleElectricalSystem(e: any) {
-    this.setState({ electrical: e.targetvalue });
+    this.setState({ electrical: e.target.value });
   }
   handleElectricalDisplay(e: any) {
-    this.setState({ electricalDisplaySwitch: e.targetvalue });
+    this.setState({ electricalDisplaySwitch: e.target.value });
   }
   handleWheels(e: any) {
-    this.setState({ wheelType: e.targetvalue });
+    this.setState({ wheelType: e.target.value });
   }
   handleTires(e: any) {
-    this.setState({ tires: e.targetvalue });
+    this.setState({ tires: e.target.value });
   }
   handleSuspension(e: any) {
-    this.setState({ suspension: e.targetvalue });
+    this.setState({ suspension: e.target.value });
   }
   handleShocks(e: any) {
-    this.setState({ shocks: e.targetvalue });
+    this.setState({ shocks: e.target.value });
   }
   handleBrakes(e: any) {
-    this.setState({ brakes: e.targetvalue });
+    this.setState({ brakes: e.target.value });
   }
 
   render() {
     return (
-          <div>
+    <div>
                {/* <FormControl className=''>
           <InputLabel id="demo-simple-select-label">Age</InputLabel>
           <Select
@@ -250,8 +250,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleTruckModel.bind(this)}
               defaultValue="select model"
-              id="truckType"
-            >
+              id="truckType">
               <MenuItem value="Pumper">Pumper</MenuItem>
               <MenuItem value="Tanker">Tanker</MenuItem>
               <MenuItem value="MVP">MVP</MenuItem>
@@ -263,9 +262,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleAxles.bind(this)}
               defaultValue="number axles"
-              id="numberAxles"
-            >
-              {" "}
+              id="numberAxles">
               <MenuItem value="2">2</MenuItem>
               <MenuItem value="2">2</MenuItem>
             </Select>
@@ -276,8 +273,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleEngine.bind(this)}
               defaultValue="select engine"
-              id="engine"
-            >
+              id="engine">
               <MenuItem value="L9-330">L9-330</MenuItem>
               <MenuItem value="L9-350">L9-350</MenuItem>
               <MenuItem value="L9-380">L9-380</MenuItem>
@@ -291,8 +287,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleFuelTank.bind(this)}
               defaultValue="select tank size"
-              id="fuelTankSize"
-            >
+              id="fuelTankSize">
               <MenuItem value="50">50 Gallons</MenuItem>
               <MenuItem value="65">65 Gallons</MenuItem>
               <MenuItem value="100">100 Gallons</MenuItem>
@@ -304,8 +299,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleBatteries.bind(this)}
               defaultValue="select engine"
-              id="engine"
-            >
+              id="engine">
               <MenuItem value="3-Array">3-Array</MenuItem>
               <MenuItem value="6-Array">6-Array</MenuItem>
             </Select>
@@ -316,15 +310,10 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleBatteryCharging.bind(this)}
               defaultValue="select battery array"
-              id="batteryCharging"
-            >
-              <MenuItem value="standard receptacle">
-                Standard Receptacle
-              </MenuItem>
+              id="batteryCharging" >
+              <MenuItem value="standard receptacle"> Standard Receptacle </MenuItem>
               <MenuItem value="auto charge">Auto Charge</MenuItem>
-              <MenuItem value="autocharge/pump plus">
-                Auto Charge/Pump Plus
-              </MenuItem>
+              <MenuItem value="autocharge/pump plus"> Auto Charge/Pump Plus</MenuItem>
             </Select>
           </FormControl>
 
@@ -333,8 +322,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleAlternator.bind(this)}
               defaultValue="select alternator"
-              id="alternator"
-            >
+              id="alternator">
               <MenuItem value="L/N 320">L/N 320</MenuItem>
               <MenuItem value="Delco 320">Delco 320</MenuItem>
               <MenuItem value="Delco 430">Delco 430</MenuItem>
@@ -347,8 +335,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleElectricalSystem.bind(this)}
               defaultValue="select electrical"
-              id="electrical"
-            >
+              id="electrical">
               <MenuItem value="Point to point">Point-to-Point</MenuItem>
               <MenuItem value="Akron VMUX">Akron VMUX</MenuItem>
             </Select>
@@ -361,8 +348,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleElectricalDisplay.bind(this)}
               defaultValue="select electrical display"
-              id="electricalDisplaySwitch"
-            >
+              id="electricalDisplaySwitch">
               <MenuItem value="Standard Switches">Standard Switches</MenuItem>
               <MenuItem value="Vista Display">Vista Display</MenuItem>
               <MenuItem value="Vista Displays (2)">Vista Displays x2</MenuItem>
@@ -374,8 +360,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleWheels.bind(this)}
               defaultValue="select wheels"
-              id="wheelType"
-            >
+              id="wheelType">
               <MenuItem value="Painted Steel">Painted Steel</MenuItem>
               <MenuItem value="Aluminum">Aluminum</MenuItem>
             </Select>
@@ -386,8 +371,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleTires.bind(this)}
               defaultValue="select tires"
-              id="tires"
-            >
+              id="tires">
               <MenuItem value="Goodyear">Goodyear</MenuItem>
               <MenuItem value="Michelin">Michelin</MenuItem>
             </Select>
@@ -398,8 +382,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleSuspension.bind(this)}
               defaultValue="select suspension"
-              id="suspension"
-            >
+              id="suspension">
               <MenuItem value="spring">Spring-based</MenuItem>
               <MenuItem value="air ride">Air Ride</MenuItem>
             </Select>
@@ -410,8 +393,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleShocks.bind(this)}
               defaultValue="select shocks"
-              id="shocks"
-            >
+              id="shocks">
               <MenuItem value="0">0</MenuItem>
               <MenuItem value="2">2</MenuItem>
             </Select>
@@ -422,8 +404,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             <Select
               onChange={this.handleBrakes.bind(this)}
               defaultValue="select brakes"
-              id="brakes"
-            >
+              id="brakes" >
               <MenuItem value="disc">Disc</MenuItem>
               <MenuItem value='"S" Cam'>"S" Cam</MenuItem>
             </Select>

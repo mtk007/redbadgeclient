@@ -116,20 +116,20 @@ handleCreatePump = (e: any) => {
         }
 
 
-handlePumpModel(e: any) {this.setState({pumpModel: e.targetvalue})}
-handlePumpPrimer(e: any) {this.setState({primer: e.targetvalue})}
-handlePumpShift(e: any) {this.setState({pumpShift: e.targetvalue})}
-handleAnodeMonitor(e: any) {this.setState({anodeMonitor: e.targetvalue})}
-handleThermalRV(e: any) {this.setState({thermalRV: e.targetvalue})}
-handleFrontSuction(e: any) {this.setState({frontSuctionMethod: e.targetvalue})}
-handleFrontSuctionValve(e: any) {this.setState({frontSuctionValve: e.targetvalue})}
-handleSwivel(e: any) {this.setState({swivel: e.targetvalue})}
-handleRearSuction(e: any) {this.setState({rearSuctionMethod: e.targetvalue})}
-handleRearSuctionValve(e: any) {this.setState({rearSuctionValve: e.targetvalue})}
-handleInterfaceCover(e: any) {this.setState({interfaceCover: e.targetvalue})}
-handlefInterfaceControls(e: any) {this.setState({interfaceControls: e.targetvalue})}
-handleTankFilling(e: any) {this.setState({tankFill: e.targetvalue})}
-handleBoosterHose(e: any) {this.setState({boosterHose: parseInt(e.targetvalue)})}
+handlePumpModel(e: any) {this.setState({pumpModel: e.target.value})}
+handlePumpPrimer(e: any) {this.setState({primer: e.target.value})}
+handlePumpShift(e: any) {this.setState({pumpShift: e.target.value})}
+handleAnodeMonitor(e: any) {this.setState({anodeMonitor: e.target.value})}
+handleThermalRV(e: any) {this.setState({thermalRV: e.target.value})}
+handleFrontSuction(e: any) {this.setState({frontSuctionMethod: e.target.value})}
+handleFrontSuctionValve(e: any) {this.setState({frontSuctionValve: e.target.value})}
+handleSwivel(e: any) {this.setState({swivel: e.target.value})}
+handleRearSuction(e: any) {this.setState({rearSuctionMethod: e.target.value})}
+handleRearSuctionValve(e: any) {this.setState({rearSuctionValve: e.target.value})}
+handleInterfaceCover(e: any) {this.setState({interfaceCover: e.target.value})}
+handlefInterfaceControls(e: any) {this.setState({interfaceControls: e.target.value})}
+handleTankFilling(e: any) {this.setState({tankFill: e.target.value})}
+handleBoosterHose(e: any) {this.setState({boosterHose: parseInt(e.target.value)})}
 
 
 render(){
