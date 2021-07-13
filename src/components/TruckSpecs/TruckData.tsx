@@ -228,21 +228,21 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
 
   render() {
     return (
-      //     <div>
-      //          <FormControl className=''>
-      //     <InputLabel id="demo-simple-select-label">Age</InputLabel>
-      //     <Select
-      //       labelId="demo-simple-select-label"
-      //       id="demo-simple-select"
-      //       //value={age}
-      //       //onChange={handleChange}
-      //     >
-      //       <MenuItem value={10}>Ten</MenuItem>
-      //       <MenuItem value={20}>Twenty</MenuItem>
-      //       <MenuItem value={30}>Thirty</MenuItem>
-      //     </Select>
-      //   </FormControl>
-      //   </div>
+          <div>
+               {/* <FormControl className=''>
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            //value={age}
+            //onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl> */}
+        
       <div className="main">
         <div className="maindiv">
           <FormControl>
@@ -258,7 +258,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
             </Select>
           </FormControl>
 
-          {/* <FormControl>
+          <FormControl>
             <InputLabel htmlFor="numberAxles">Axles #</InputLabel>
             <Select
               onChange={this.handleAxles.bind(this)}
@@ -427,12 +427,13 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
               <MenuItem value="disc">Disc</MenuItem>
               <MenuItem value='"S" Cam'>"S" Cam</MenuItem>
             </Select>
-          </FormControl> */}
+          </FormControl>
 
           <button onClick={this.handleCreateTruck.bind(this)}>
             Create Truck
           </button>
         </div>
+      </div>
       </div>
     );
   }
