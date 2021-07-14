@@ -1,6 +1,7 @@
 # Mid-America Fire and Safety Fire Truck Builder Beta 
 Purpose: Select factory-offered specifications for fire apparatus build-out and submit them as an electronic order request. 
 
+# EFA staff test admin account: efa85@email.com pw: efa85
 
 # Deployed live via Heroku:
 ////////////////  https://firetruckbuilderclient.herokuapp.com/  ///////////////////////////

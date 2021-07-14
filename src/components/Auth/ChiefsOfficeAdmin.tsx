@@ -107,7 +107,7 @@ export default class ChiefOffice extends Component<AcceptedProps, DeleteUser> {
                         <Label>User's ID</Label>
                         <Input onChange={(e) => this.setState({id: parseInt(e.target.value)})} />
                         <br/>
-                        <Button  variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => this.handleDelete(this.state.id)}>Delete User and All Truck Orders</Button>
+                        <Button  variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => this.handleDelete(this.state.id)}>Delete User ONLY </Button>
                         <br />
                         <br />
                         <Label>User ID</Label>

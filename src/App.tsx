@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { isPropertySignature } from 'typescript';
 import Footer from './components/Site/footer';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Site/header';

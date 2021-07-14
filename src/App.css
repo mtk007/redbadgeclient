@@ -5,11 +5,16 @@ body {
   font: Belleza;
 }
 
+form {
+margin-left: 5 px;
+
+
+}
 /* footer */
 footer {
   background-color: #53565A;
   color: white;
-  margin-top: 10px;
+  margin-top: 10 px;
 }
 
 footer p{
@@ -41,7 +46,6 @@ dl > dt {
   font-weight: bold;
 }
 
-
 ul {
   list-style-type: none;
 }
@@ -60,11 +64,13 @@ ul {
   margin-top: 2em;
   color: white;
   padding: 0;
+  margin-right: 2em;
 }
 
 .sidebar-route{
   flex: 1;
   padding: '00px';
+  margin-left: 15;
 }
 
 /* Header */

@@ -5,6 +5,9 @@
   margin-right: 30 px;
 }
 
+.side-route {
+  margin-left: 15 px;
+}
 .chief {
   margin-top: 20px;
   color: coral;
@@ -19,6 +22,10 @@
   height: Ypx; 
 }
   
+.form {
+
+  margin-left: 15 px;
+}
   span {
     font-size: 30px;
     @media only screen and (max-width: 600px) {

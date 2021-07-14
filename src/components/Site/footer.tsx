@@ -16,8 +16,8 @@ import React, { Component } from "react";
 class Footer extends Component {
   render() {
     return (<>
-     
-       <h1>Mid America Fire Fire Apparatus Request System Beta</h1>
+      
+       <p>Mid America Fire and Safety Fire Apparatus Request System ~Beta Version~</p>
       
    </> );
   }

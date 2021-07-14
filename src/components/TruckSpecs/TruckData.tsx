@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
-import { Label } from "reactstrap";
+
 import MenuItem from "@material-ui/core/MenuItem";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import FormControl from "@material-ui/core/FormControl";
@@ -37,7 +37,7 @@ type AcceptedProps = {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     formControl: {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
       minWidth: 120,
     },
     selectEmpty: {
@@ -356,7 +356,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
               <MenuItem value="Vista Displays (2)">Vista Displays x2</MenuItem>
             </Select>
           </FormControl>
-
+<br />
           <FormControl>
             <InputLabel htmlFor="wheelType">Wheels</InputLabel>
             <Select
@@ -411,14 +411,15 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
               <MenuItem value='"S" Cam'>"S" Cam</MenuItem>
             </Select>
           </FormControl>
-
-          <button onClick={this.handleCreateTruck}>
+<br />
+          <button onClick={()=>this.handleUpdateTruck}>
+            Update This Truck
+          </button>
+          <button onClick={()=>this.handleCreateTruck}>
             Create Truck
           </button>
          
-          {/* <button onClick={this.handleUpdateTruck}>
-            Update This Truck
-          </button> */}
+        
 
 
         </div>

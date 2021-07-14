@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme,} from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -33,6 +33,24 @@ type AcceptedProps= {
     
 }
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+
+    formControl: {
+      margin: theme.spacing(2),
+      minWidth: 120,
+     
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+  })
+);
+
 
 export default class CreatePump extends Component<AcceptedProps, PumpData> {
     constructor(props: AcceptedProps) {
@@ -53,7 +71,9 @@ export default class CreatePump extends Component<AcceptedProps, PumpData> {
             tankFill: '',
             boosterHose: 0,
             truckId: 0
-    }
+    };
+    this.handleCreatePump.bind(this)
+    this.handleUpdatePump.bind(this)
 }
 
 //get all pump
@@ -138,7 +158,8 @@ return (
  <div className='main'>  
  <div className='maindiv'>   
 <form>
-     {/* <FormControl className={classes.formControl}>     */}   
+     <FormControl>       
+    {/* <FormControl className={classes.formControl}> */}
       <InputLabel htmlFor="pumpModel">
          Pump Model
       </InputLabel>                
@@ -153,9 +174,9 @@ return (
           <MenuItem value='Waterous CMU'>Waterous CMU</MenuItem>
           <MenuItem value='Darley'>Darley</MenuItem>
           </Select>      
-    {/*  </FormControl>      */}
+     </FormControl>     
 
-     {/* <FormControl className={classes.formControl}>    */}    
+      <FormControl>        
       <InputLabel htmlFor="primer">
          Primer
       </InputLabel>                
@@ -164,9 +185,9 @@ return (
           <MenuItem value='Air - Manual'>Air - Manual</MenuItem>
           <MenuItem value='Air - Auto'>Air - Auto</MenuItem>
           </Select>      
-  {/*  </FormControl>  */}
+    </FormControl>  
 
-    {/*  <FormControl className={classes.formControl}>        */}
+      <FormControl >        
       <InputLabel htmlFor="pumpShift">
          Pump Shift 
       </InputLabel>                
@@ -174,9 +195,9 @@ return (
           <MenuItem value='Standard'>Standard</MenuItem>
           <MenuItem value='Standard w/Override'>Standard w/Override</MenuItem>
           </Select>      
-   {/*   </FormControl> */}
+      </FormControl> 
 
-  {/*  <FormControl className={classes.formControl}>        */}
+    <FormControl>        
       <InputLabel htmlFor="anodeMonitor">
          Anode Monitor 
       </InputLabel>                
@@ -184,9 +205,9 @@ return (
           <MenuItem value='Yes'>Yes</MenuItem>
           <MenuItem value='No'>No</MenuItem>
           </Select>      
-    {/*  </FormControl> */}
+      </FormControl> 
 
-    {/*  <FormControl className={classes.formControl}>        */}
+      <FormControl >        
       <InputLabel htmlFor="thermalRV">
          Thermal RV 
       </InputLabel>                
@@ -197,9 +218,9 @@ return (
           <MenuItem value='TRV w/light'>TRV w/Light</MenuItem>
           <MenuItem value='TRV w/light & alarm'>TRV w/Light & Alarm</MenuItem>
           </Select>      
-   {/*   </FormControl> */}
+      </FormControl> 
 
-  {/*    <FormControl className={classes.formControl}>   */}     
+      <FormControl >        
       <InputLabel htmlFor="frontSuctionMethod">
          Front Pump Suction Method 
       </InputLabel>                
@@ -208,9 +229,9 @@ return (
           <MenuItem value='electric valve'>Electric Valve</MenuItem>
           <MenuItem value='air valve'>Air Valve</MenuItem>
           </Select>      
-  {/*    </FormControl> */}
+      </FormControl> 
 
-  {/*    <FormControl className={classes.formControl}>    */}    
+      <FormControl >        
       <InputLabel htmlFor="frontSuctionValve">
          Front Pump Suction Valve 
       </InputLabel>                
@@ -223,9 +244,9 @@ return (
           <MenuItem value='5" w/Air Valve'>5" - Air Valve</MenuItem>
           <MenuItem value='5" w/Electric Valve'>5" - Electric Valve</MenuItem>
           </Select>      
-  {/*    </FormControl> */}
-
-  {/*    <FormControl className={classes.formControl}>   */}     
+      </FormControl> 
+<br />
+      <FormControl>        
       <InputLabel htmlFor="swivel">
          Swivel 
       </InputLabel>                
@@ -233,9 +254,9 @@ return (
           <MenuItem value='Yes'>Yes</MenuItem>
           <MenuItem value='No'>No</MenuItem>
           </Select>      
-  {/*    </FormControl> */}
+      </FormControl> 
 
-   {/*   <FormControl className={classes.formControl}>     */}   
+      <FormControl >        
       <InputLabel htmlFor="rearSuctionMethod">
          Rear Pump Suction Method 
       </InputLabel>                
@@ -244,9 +265,9 @@ return (
           <MenuItem value='electric valve'>Electric Valve</MenuItem>
           <MenuItem value='air valve'>Air Valve</MenuItem>
           </Select>      
-  {/*    </FormControl> */}
+      </FormControl> 
 
-{/*      <FormControl className={classes.formControl}>     */}   
+      <FormControl >        
       <InputLabel htmlFor="rearSuctionValve">
          Rear Pump Suction Valve 
       </InputLabel>                
@@ -258,9 +279,9 @@ return (
           <MenuItem value='3" Handwheel Valve'>3" Handwheel Valve</MenuItem>
           <MenuItem value='3" Electric Valve'>3" Electric Valve</MenuItem>
           </Select>      
-   {/*   </FormControl> */}
+      </FormControl> 
 
-  {/*    <FormControl className={classes.formControl}>        */}
+      <FormControl >        
       <InputLabel htmlFor="interfaceCover">
          Interface Cover 
       </InputLabel>                
@@ -269,9 +290,9 @@ return (
           <MenuItem value='Hypalon'>Hypalon</MenuItem>
           <MenuItem value='Treadplate'>Treadplate</MenuItem>
           </Select>      
-  {/*    </FormControl>*/}
+      </FormControl>
 
-   {/*   <FormControl className={classes.formControl}>       */} 
+      <FormControl >        
       <InputLabel htmlFor='interfaceControls'>
          Interface Controls 
       </InputLabel>                
@@ -280,9 +301,9 @@ return (
           <MenuItem value='Double'>Double</MenuItem>
           <MenuItem value='Triple'>Triple</MenuItem>
           </Select>      
-   {/*   </FormControl>
+      </FormControl>
 
-   {/*   <FormControl className={classes.formControl}>      */}  
+      <FormControl >        
       <InputLabel htmlFor='tankFill'>
          Tank Filling
       </InputLabel>                
@@ -291,9 +312,9 @@ return (
           <MenuItem value='Tank 1 power'>Tank 1 - Powered</MenuItem>
           <MenuItem value='Both Tanks power'>Tanks 1+2 - Powered</MenuItem>
           </Select>      
-    {/*  </FormControl> */}
+      </FormControl> 
 
-   {/*   <FormControl className={classes.formControl}>   */}     
+      <FormControl >        
       <InputLabel htmlFor='boosterHose'>
          Booster Hose 
       </InputLabel>                
@@ -301,10 +322,18 @@ return (
           <MenuItem value='0'>None</MenuItem>
           <MenuItem value='1'>One</MenuItem>
           </Select>      
-   {/*   </FormControl>*/}
+      </FormControl>
+<br />
+            <button onClick={()=>this.handleUpdatePump}>
+            Update This Pump
+             </button>
+            <button onClick={()=>this.handleCreatePump}>
+                Create Pump
+                </button>
 
+   
 
-      <button onClick={this.handleCreatePump.bind(this)}>Create Pump</button>
+          
  </form>
  </div>
 </div>
