@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
-
+import { Label } from "reactstrap";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import FormControl from "@material-ui/core/FormControl";
@@ -9,7 +9,7 @@ import Select from "@material-ui/core/Select";
 import { render } from "@testing-library/react";
 import APIURL from "../Site/environment";
 import featuresTruck from '../TruckSpecs/dropdownarrays';
-//import classes from '*.module.css';  //probably not what I actually need to do
+
 
 type TruckData = {
   id: number;
@@ -34,17 +34,17 @@ type AcceptedProps = {
   sessionToken: string | null;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    formControl: {
-      margin: theme.spacing(2),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  })
-);
+// const useStyles = makeStyles((theme: Theme) =>
+//   createStyles({
+//     formControl: {
+//       margin: theme.spacing(1),
+//       minWidth: 120,
+//     },
+//     selectEmpty: {
+//       marginTop: theme.spacing(2),
+//     },
+//   })
+// );
 
 export default class CreateTruck extends Component<AcceptedProps, TruckData> {
   constructor(props: AcceptedProps) {
@@ -356,7 +356,7 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
               <MenuItem value="Vista Displays (2)">Vista Displays x2</MenuItem>
             </Select>
           </FormControl>
-<br />
+
           <FormControl>
             <InputLabel htmlFor="wheelType">Wheels</InputLabel>
             <Select
@@ -411,15 +411,14 @@ export default class CreateTruck extends Component<AcceptedProps, TruckData> {
               <MenuItem value='"S" Cam'>"S" Cam</MenuItem>
             </Select>
           </FormControl>
-<br />
-          <button onClick={()=>this.handleUpdateTruck}>
-            Update This Truck
-          </button>
-          <button onClick={()=>this.handleCreateTruck}>
+
+          <button onClick={this.handleCreateTruck}>
             Create Truck
           </button>
          
-        
+          {/* <button onClick={this.handleUpdateTruck}>
+            Update This Truck
+          </button> */}
 
 
         </div>

@@ -8,8 +8,8 @@ body {
 form {
 margin-left: 5 px;
 
-
 }
+
 /* footer */
 footer {
   background-color: #53565A;
@@ -48,6 +48,7 @@ dl > dt {
 
 ul {
   list-style-type: none;
+  padding-inline: 10px;
 }
 
 /* Sidebar */

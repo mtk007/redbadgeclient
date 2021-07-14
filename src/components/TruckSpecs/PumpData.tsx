@@ -33,23 +33,24 @@ type AcceptedProps= {
     
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
+// const useStyles = makeStyles((theme: Theme) =>
+//   createStyles({
+//     root: {
+//         display: 'flex',
+//         flexGrow: 1,
+ 
+//     },
 
-    formControl: {
-      margin: theme.spacing(2),
-      minWidth: 120,
-     
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  })
-);
+//     formControl: {
+//       margin: theme.spacing(5),
+//       minWidth: 150,
+//      padding: theme.spacing(2)
+//     },
+//     selectEmpty: {
+//       marginTop: theme.spacing(2),
+//     },
+//   })
+// );
 
 
 export default class CreatePump extends Component<AcceptedProps, PumpData> {
@@ -158,7 +159,7 @@ return (
  <div className='main'>  
  <div className='maindiv'>   
 <form>
-     <FormControl>       
+     <FormControl>      
     {/* <FormControl className={classes.formControl}> */}
       <InputLabel htmlFor="pumpModel">
          Pump Model
